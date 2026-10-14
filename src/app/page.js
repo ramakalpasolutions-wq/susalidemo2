@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, HeartHandshake, Network, ShieldCheck, Activity, CheckCircle2, Sparkles, MessageCircleQuestion } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, HeartHandshake, Network, ShieldCheck, Activity, CheckCircle2, Sparkles } from 'lucide-react';
 import { HeroVisual, InteractiveJourney } from '@/components/OmbreExperience';
 import { services } from '@/data/site';
 import DynamicIcon from '@/components/Icons';
@@ -139,22 +139,30 @@ export default function Home() {
     {/* ── NETWORK ── */}
     <section className="og-network-section section-space">
       <div className="container og-network-layout">
-        <ScrollReveal direction="left">
+        <ScrollReveal direction="left" style={{ minWidth: 0 }}>
           <div>
             <span className="og-kicker">04 / OUR HEALTHCARE NETWORK</span>
             <h2>Stronger care begins with <em>better connections.</em></h2>
             <p className="og-lead">A collaborative mindset that brings people, healthcare facilities and support teams closer.</p>
             <p>SUSALI's network vision centers on coordination and meaningful communication, while healthcare professionals remain responsible for clinical decisions and treatment.</p>
-            <MagneticButton>
-              <Link href="/healthcare-network" className="og-pill-button og-pill-primary">Explore the network <ArrowUpRight size={18} /></Link>
-            </MagneticButton>
+            <div style={{ marginTop: 16 }}>
+              <MagneticButton>
+                <Link href="/healthcare-network" className="og-pill-button og-pill-primary">
+                  Explore the network <ArrowUpRight size={18} />
+                </Link>
+              </MagneticButton>
+            </div>
           </div>
         </ScrollReveal>
-        <ScrollReveal direction="right">
+        <ScrollReveal direction="right" style={{ minWidth: 0 }}>
           <div className="og-network-art">
             <div className="og-network-ring ring-a" />
             <div className="og-network-ring ring-b" />
-            <div className="og-network-core"><Network size={48} /><strong>SUSALI</strong><small>Connected care</small></div>
+            <div className="og-network-core">
+              <Network size={48} />
+              <strong>SUSALI</strong>
+              <small>Connected care</small>
+            </div>
             <span className="og-network-node nn1"><HeartHandshake size={25} /><small>Support</small></span>
             <span className="og-network-node nn2"><Network size={25} /><small>Teams</small></span>
             <span className="og-network-node nn3"><Activity size={25} /><small>Care</small></span>
@@ -164,25 +172,25 @@ export default function Home() {
       </div>
     </section>
 
-    {/* ── STATS ── */}
+    {/* ── STATS CARD (SINGLE RENDERED BLOCK) ── */}
     <section className="section-space">
-      <div className="container og-stats-row">
-        <ScrollReveal delay={0}>
-          <div className="og-stat-item">
-            <h2><CountUp target={500} suffix="+" /></h2>
-            <p>Patients Guided</p>
-          </div>
-        </ScrollReveal>
-        <ScrollReveal delay={0.15}>
-          <div className="og-stat-item">
-            <h2><CountUp target={50} suffix="+" /></h2>
-            <p>Care Partners</p>
-          </div>
-        </ScrollReveal>
-        <ScrollReveal delay={0.3}>
-          <div className="og-stat-item">
-            <h2><CountUp target={98} suffix="%" /></h2>
-            <p>Satisfaction Rate</p>
+      <div className="container">
+        <ScrollReveal>
+          <div className="og-stats-glass-card">
+            <StaggerContainer className="og-stats-row" stagger={0.12}>
+              <StaggerItem className="og-stat-item">
+                <h2><CountUp target={500} suffix="+" /></h2>
+                <p>Patients Guided</p>
+              </StaggerItem>
+              <StaggerItem className="og-stat-item">
+                <h2><CountUp target={50} suffix="+" /></h2>
+                <p>Care Partners</p>
+              </StaggerItem>
+              <StaggerItem className="og-stat-item">
+                <h2><CountUp target={98} suffix="%" /></h2>
+                <p>Satisfaction Rate</p>
+              </StaggerItem>
+            </StaggerContainer>
           </div>
         </ScrollReveal>
       </div>

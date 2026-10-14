@@ -88,3 +88,51 @@ h1,h2,h3,h4{letter-spacing:-.055em}
 @media(max-width:850px){.og-nav{height:74px}.og-navigation{display:none;position:absolute;top:74px;left:15px;right:15px;margin:0;padding:18px;background:#FFFFFFF5;border:1px solid white;box-shadow:0 20px 50px #54516929;backdrop-filter:blur(25px);border-radius:22px;flex-direction:column;align-items:stretch;gap:0}.og-navigation.is-open{display:flex}.og-navigation a{font-size:15px;padding:13px 10px;border-bottom:1px solid #EDE9F0}.og-navigation a.active:after{display:none}.og-mobile-contact{display:flex!important;justify-content:space-between;color:#55546C!important}.og-menu-button{display:grid;place-items:center;height:45px;width:45px;border-radius:15px;background:#FFFFFFCC;color:#42475A;border:1px solid white;margin-left:0}.og-nav-cta{margin-left:auto}.og-hero{min-height:0}.og-hero-inner{padding-top:55px}.og-hero-art{height:400px}.og-card-left{left:0;top:125px}.og-card-right{right:0;top:105px}.og-card-center{bottom:15px}.og-intro-layout,.og-network-layout,.og-faq-layout{grid-template-columns:1fr;gap:55px}.og-intro-art{max-width:560px;width:100%;margin:auto}.og-intro-copy{max-width:670px}.og-services-grid{grid-template-columns:repeat(2,1fr)}.og-network-art{max-width:560px;width:100%;margin:auto}.og-network-layout>div:first-child{max-width:700px}.og-faq-layout{gap:22px}.og-faq-layout>div:first-child{max-width:650px}}
 @media(max-width:600px){.container{width:calc(100% - 34px)}.section-space{padding:77px 0}.og-header{top:0}.og-nav{height:70px;gap:10px}.og-navigation{top:70px}.og-brand{font-size:19px}.og-brand-orb{width:37px;height:37px}.og-brand small{font-size:7px}.og-nav-cta{font-size:11px;padding:11px 13px;gap:5px}.og-menu-button{height:40px;width:40px}.og-hero{margin:0 5px;border-radius:0 0 27px 27px}.og-hero-inner{padding-top:47px}.og-hero-badge{font-size:8px;padding:9px 11px;letter-spacing:.08em}.og-hero h1{font-size:clamp(41px,10.7vw,64px);letter-spacing:-.075em;margin:25px -8px 14px;line-height:1.07}.og-hero-inner>p{font-size:14px;line-height:1.65;padding:0 5px}.og-hero-actions{gap:8px;margin-top:23px}.og-pill-button{padding:14px 14px;font-size:11px;gap:9px}.og-hero-art{height:435px;margin-top:2px}.og-sculpture{width:310px;height:310px;left:calc(50% - 155px);bottom:-55px}.og-sculpture-inner{inset:47px}.og-sculpture-core{height:105px;width:105px}.og-sculpture-core svg{height:53px;width:53px}.og-orb.orb-one{width:44px;height:44px;left:5%;top:100px}.og-orb.orb-two{width:37px;height:37px;right:8%;top:100px}.og-orb.orb-three{display:none}.og-floating-card{border-radius:18px}.og-card-left{left:0;top:54px;min-width:0;width:61%;padding:10px;gap:7px}.og-card-left .og-mini-icon{height:29px;width:29px;flex-basis:29px;border-radius:9px}.og-card-left .og-mini-icon svg{width:16px}.og-card-overline{font-size:7px}.og-card-left strong{font-size:11px}.og-card-left small{font-size:8px}.og-tiny-check{width:19px;height:19px;flex:0 0 19px}.og-card-right{right:0;top:141px;width:62%;height:142px;padding:11px}.og-chart-header .og-mini-icon{width:30px;height:30px;flex-basis:30px}.og-chart-header strong{font-size:10px}.og-chart-header small{font-size:8px}.og-chart{height:59px;margin-top:7px}.og-card-center{left:2%;bottom:7px;width:96%;padding:13px}.og-card-center-heading .og-mini-icon{width:30px;height:30px;flex-basis:30px}.og-card-center strong{font-size:12px}.og-care-line{margin-top:10px;gap:5px}.og-care-line>span:not(.og-dot-track){font-size:9px;padding:8px}.og-care-line>span svg{width:12px}.og-care-chips{gap:5px;margin-top:9px}.og-care-chips span{font-size:9px;padding:6px 9px}.og-hero-footnote{font-size:8px;padding-top:12px;gap:15px}.og-hero-footnote a{text-align:right;gap:6px}.og-intro-art{min-height:345px}.og-intro-orb{height:200px;width:200px}.og-intro-orb>svg{width:77px;height:77px}.og-intro-floating{right:-6px;top:43px;padding:9px}.og-intro-floating strong{font-size:11px}.og-intro-floating small{font-size:8px}.og-intro-bottom-pill{left:-5px;bottom:23px;font-size:9px;padding:10px}.og-intro-copy h2,.og-section-heading h2,.og-network-layout h2,.og-faq-layout h2{font-size:clamp(34px,8.6vw,46px)}.og-intro-copy .og-lead,.og-network-layout .og-lead{font-size:17px}.og-intro-traits{gap:13px;margin-top:25px}.og-section-heading{display:block;margin-bottom:28px}.og-section-heading>p{max-width:520px;margin-top:17px;font-size:14px}.og-services-grid{grid-template-columns:1fr;gap:12px}.og-service-card{min-height:250px;padding:24px}.og-service-card h3{margin-top:24px}.og-section-bottom{flex-direction:column;align-items:flex-start}.og-journey-tabs{grid-template-columns:repeat(2,1fr)}.og-journey-tabs button{padding:12px;font-size:11px;gap:7px}.og-journey-display{grid-template-columns:1fr;padding:16px 20px 28px;gap:0}.og-stage-illustration{width:190px;height:190px}.og-stage-icon{height:95px;width:95px}.og-stage-copy h3{font-size:31px}.og-network-art{height:360px}.og-network-core{width:115px;height:115px}.og-network-core svg{width:35px}.og-network-core strong{font-size:14px}.og-network-node{width:76px;height:76px;border-radius:21px}.og-network-node svg{width:20px}.og-network-node small{font-size:9px}.og-final-section{padding:0 0 70px}.og-final-card{padding:53px 22px;border-radius:25px}.og-final-card h2{font-size:clamp(34px,8.4vw,48px)}.og-final-card p{font-size:13px}.og-intro-layout{gap:37px}.og-network-layout{gap:25px}}
 @media(prefers-reduced-motion:reduce){.og-orb,.og-floating-card,.og-network-node,.og-network-ring{animation:none!important}}
+/* ── Stats Glass Card Styling ── */
+.og-stats-glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(244, 239, 250, 0.6));
+  border: 1px solid #ffffff;
+  box-shadow: 0 20px 45px rgba(120, 115, 144, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 48px 32px;
+}
+
+.og-stats-row {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 100%;
+}
+
+.og-stat-item {
+  flex: 1 1 200px;
+  max-width: 280px;
+  text-align: center;
+}
+
+.og-stat-item h2 {
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 820;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+  margin: 0 0 8px;
+  background: linear-gradient(135deg, #8F73A0 0%, #546481 55%, #B995B9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.og-stat-item p {
+  font-size: 14px;
+  color: #74798E;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  margin: 0;
+}

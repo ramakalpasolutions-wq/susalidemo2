@@ -2,7 +2,7 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
-export default function MagneticButton({ children, className = '', strength = 0.3 }) {
+export default function MagneticButton({ children, className = '', strength = 0.35 }) {
   const ref = useRef(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
@@ -22,7 +22,8 @@ export default function MagneticButton({ children, className = '', strength = 0.
       onMouseLeave={() => setPos({ x: 0, y: 0 })}
       animate={{ x: pos.x, y: pos.y }}
       transition={{ type: 'spring', stiffness: 350, damping: 15, mass: 0.5 }}
-      className={`inline-block ${className}`}
+      className={className}
+      style={{ display: 'inline-block' }}
     >
       {children}
     </motion.div>
