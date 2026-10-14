@@ -2,9 +2,58 @@
 import { useState } from 'react';
 import { ArrowUpRight, Check, Copy, Mail } from 'lucide-react';
 import { site } from '@/data/site';
-export default function ContactForm(){
- const [values,setValues]=useState({name:'',email:'',type:'General enquiry',message:''});const [copied,setCopied]=useState(false);
- const content=`SUSALI enquiry\nName: ${values.name}\nEmail: ${values.email}\nType: ${values.type}\n\n${values.message}`;
- function submit(e){e.preventDefault();if(site.email){window.location.href=`mailto:${site.email}?subject=${encodeURIComponent('SUSALI — '+values.type)}&body=${encodeURIComponent(content)}`;}else if(navigator.clipboard){navigator.clipboard.writeText(content).then(()=>{setCopied(true);setTimeout(()=>setCopied(false),3500)}).catch(()=>{window.location.href=`mailto:?subject=${encodeURIComponent('SUSALI enquiry')}&body=${encodeURIComponent(content)}`});}else{window.location.href=`mailto:?subject=${encodeURIComponent('SUSALI enquiry')}&body=${encodeURIComponent(content)}`;}}
- return <form className="contact-form" onSubmit={submit}><div className="form-grid"><label>Full name <span>*</span><input required value={values.name} onChange={e=>setValues({...values,name:e.target.value})} placeholder="Your full name"/></label><label>Email address <span>*</span><input required type="email" value={values.email} onChange={e=>setValues({...values,email:e.target.value})} placeholder="you@example.com"/></label></div><label>I'm interested in <select value={values.type} onChange={e=>setValues({...values,type:e.target.value})}><option>General enquiry</option><option>Healthcare network collaboration</option><option>Services information</option><option>Other</option></select></label><label>Your message <span>*</span><textarea rows="6" required minLength={10} value={values.message} onChange={e=>setValues({...values,message:e.target.value})} placeholder="Tell us a little about your enquiry…"/></label><button className="btn btn-primary submit-btn" type="submit">{site.email?'Prepare email enquiry':copied?'Enquiry copied':'Copy enquiry'} {copied?<Check size={18}/>:site.email?<ArrowUpRight size={18}/>:<Copy size={18}/>}</button><p className="form-disclaimer">{site.email?'Your email application will open with your enquiry prepared; no data is stored on this website.':'Demo mode: no email destination has been configured. This copies your enquiry so you can share it through a verified SUSALI contact channel. No information is submitted or stored.'}</p></form>
+import MagneticButton from '@/components/MagneticButton';
+
+export default function ContactForm() {
+  const [values, setValues] = useState({ name: '', email: '', type: 'General enquiry', message: '' });
+  const [copied, setCopied] = useState(false);
+  const content = `SUSALI enquiry\nName: ${values.name}\nEmail: ${values.email}\nType: ${values.type}\n\n${values.message}`;
+
+  function submit(e) {
+    e.preventDefault();
+    if (site.email) {
+      window.location.href = `mailto:${site.email}?subject=${encodeURIComponent('SUSALI — ' + values.type)}&body=${encodeURIComponent(content)}`;
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(content)
+        .then(() => { setCopied(true); setTimeout(() => setCopied(false), 3500); })
+        .catch(() => { window.location.href = `mailto:?subject=${encodeURIComponent('SUSALI enquiry')}&body=${encodeURIComponent(content)}`; });
+    } else {
+      window.location.href = `mailto:?subject=${encodeURIComponent('SUSALI enquiry')}&body=${encodeURIComponent(content)}`;
+    }
+  }
+
+  return (
+    <form className="contact-form" onSubmit={submit}>
+      <div className="form-grid">
+        <label>Full name <span>*</span>
+          <input required value={values.name} onChange={e => setValues({ ...values, name: e.target.value })} placeholder="Your full name" />
+        </label>
+        <label>Email address <span>*</span>
+          <input required type="email" value={values.email} onChange={e => setValues({ ...values, email: e.target.value })} placeholder="you@example.com" />
+        </label>
+      </div>
+      <label>I'm interested in
+        <select value={values.type} onChange={e => setValues({ ...values, type: e.target.value })}>
+          <option>General enquiry</option>
+          <option>Healthcare network collaboration</option>
+          <option>Services information</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label>Your message <span>*</span>
+        <textarea rows="6" required minLength={10} value={values.message} onChange={e => setValues({ ...values, message: e.target.value })} placeholder="Tell us a little about your enquiry…" />
+      </label>
+      <MagneticButton>
+        <button className="btn btn-primary submit-btn" type="submit">
+          {site.email ? 'Prepare email enquiry' : copied ? 'Enquiry copied' : 'Copy enquiry'}{' '}
+          {copied ? <Check size={18} /> : site.email ? <ArrowUpRight size={18} /> : <Copy size={18} />}
+        </button>
+      </MagneticButton>
+      <p className="form-disclaimer">
+        {site.email
+          ? 'Your email application will open with your enquiry prepared; no data is stored on this website.'
+          : 'Demo mode: no email destination has been configured. This copies your enquiry so you can share it through a verified SUSALI contact channel. No information is submitted or stored.'}
+      </p>
+    </form>
+  );
 }
