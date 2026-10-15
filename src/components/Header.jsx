@@ -1,8 +1,9 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { ArrowUpRight, Menu, X, Plus, Globe } from 'lucide-react';
+import { ArrowUpRight, Menu, X, Globe } from 'lucide-react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import MagneticButton from '@/components/MagneticButton';
 import { useLanguage } from '@/context/LanguageContext';
@@ -43,9 +44,16 @@ export default function Header() {
       transition={{ duration: 0.35, ease: 'easeInOut' }}
     >
       <div className="og-nav container">
+        {/* ── Official Logo Placement ── */}
         <Link href="/" className="og-brand" aria-label="SUSALI home">
-          <span className="og-brand-orb"><Plus size={22} strokeWidth={2.6} /></span>
-          <span>SUSALI<small>CONNECTED CARE</small></span>
+          <Image 
+            src="/logo.png" 
+            alt="SUSALI Logo" 
+            width={150} 
+            height={42} 
+            style={{ objectFit: 'contain', height: '90px', width: 'auto' }}
+            priority
+          />
         </Link>
 
         <nav className={'og-navigation ' + (open ? 'is-open' : '')} id="susali-navigation">

@@ -1,7 +1,8 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, HeartPulse, Mail } from 'lucide-react';
+import { ArrowUpRight, Mail } from 'lucide-react';
 import { site } from '@/data/site';
 import MagneticButton from '@/components/MagneticButton';
 import { useLanguage } from '@/context/LanguageContext';
@@ -15,7 +16,15 @@ export default function Footer() {
       <div className="container">
         <div className="footer-top">
           <div>
-            <div className="footer-brand"><span className="footer-brand-symbol"><HeartPulse size={21} /></span>SUSALI<span className="brand-dot">.</span></div>
+            <div className="footer-brand" style={{ marginBottom: '14px' }}>
+              <Image 
+                src="/logo.png" 
+                alt="SUSALI Logo" 
+                width={140} 
+                height={38} 
+                style={{ objectFit: 'contain', height: '130px', width: 'auto',  }}
+              />
+            </div>
             <p>{f.desc}</p>
             <span className="footer-note">{f.tagline}</span>
           </div>

@@ -6,8 +6,10 @@ const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState('en');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const saved = localStorage.getItem('susali_lang');
     if (saved && (saved === 'en' || saved === 'te')) {
       setLang(saved);
@@ -19,10 +21,12 @@ export function LanguageProvider({ children }) {
     localStorage.setItem('susali_lang', newLang);
   };
 
-  const t = translations[lang] || translations.en;
+  // Guarantee that SSR and initial client hydration pass match 100% identically
+  const activeLang = mounted ? lang : 'en';
+  const t = translations[activeLang] || translations.en;
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang: changeLang, t }}>
+    <LanguageContext.Provider value={{ lang: activeLang, setLang: changeLang, t, mounted }}>
       {children}
     </LanguageContext.Provider>
   );
