@@ -136,3 +136,49 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   letter-spacing: 0.03em;
   margin: 0;
 }
+/* ── Language Switcher Toggle Pill ── */
+.og-lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(85, 81, 106, 0.08);
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #546481;
+}
+
+.og-lang-toggle button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: 700;
+  color: #797C8E;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.og-lang-toggle button:hover {
+  color: #2B303C;
+}
+
+.og-lang-toggle button.active {
+  color: #8F73A0;
+  font-weight: 850;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.og-lang-toggle .divider {
+  opacity: 0.35;
+  font-size: 11px;
+}
+
+@media (max-width: 850px) {
+  .og-lang-toggle {
+    margin-left: auto;
+  }
+}

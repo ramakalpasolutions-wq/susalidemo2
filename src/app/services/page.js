@@ -1,29 +1,28 @@
-import { ArrowUpRight, CheckCircle2, HeartHandshake } from 'lucide-react';
+'use client';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
-import { services, journey } from '@/data/site';
 import DynamicIcon from '@/components/Icons';
 import { PageHero, SectionTitle, Journey, CTA } from '@/components/Shared';
 import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import TiltCard from '@/components/TiltCard';
-
-export const metadata = {
-  title: 'SUSALI Services',
-  description: "SUSALI Services — Connected Healthcare & Patient Support",
-};
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Services() {
+  const { t } = useLanguage();
+  const s = t.services;
+
   return <>
-    <PageHero tag="HOW WE HELP" title="Connecting You to" accent="the Care Journey." description="Healthcare involves more than appointments and treatment. It involves people, information, decisions and continued care. SUSALI brings important healthcare coordination services together." />
+    <PageHero tag={s.heroTag} title={s.heroTitle} accent={s.heroAccent} description={s.heroDesc} />
 
     <section className="section-space">
       <div className="container">
-        <SectionTitle eyebrow="OUR SERVICE PHILOSOPHY" title="Thoughtful Support for Every" accent="Healthcare Connection." desc="Every patient journey begins differently. Our services aim to support meaningful connections between patients and medical professionals." />
+        <SectionTitle eyebrow={s.philosophyKicker} title={s.philosophyTitle1} accent={s.philosophyTitle2} desc={s.philosophyP} />
         <StaggerContainer className="service-detail-grid" stagger={0.08}>
-          {services.map(item => (
+          {s.list.map(item => (
             <StaggerItem key={item.id}>
               <TiltCard className="service-detail" style={{ height: '100%' }}>
                 <div className="detail-top">
-                  <span className="service-icon"><DynamicIcon name={item.icon} size={30} /></span>
+                  <span className="service-icon"><DynamicIcon name="HeartPulse" size={30} /></span>
                   <span className="detail-no">{item.id}</span>
                 </div>
                 <h3>{item.title}</h3>
@@ -42,7 +41,7 @@ export default function Services() {
     <ScrollReveal>
       <section className="process-light section-space">
         <div className="container">
-          <SectionTitle eyebrow="HOW SUSALI WORKS" title="From the First Connection to" accent="Continued Care." desc="Every healthcare journey is different. SUSALI helps bring the important steps together in one connected experience." />
+          <SectionTitle eyebrow={s.journeyKicker} title={s.journeyTitle1} accent={s.journeyTitle2} />
           <Journey />
         </div>
       </section>
