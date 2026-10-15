@@ -7,21 +7,21 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/Scroll
 import TiltCard from '@/components/TiltCard';
 
 export const metadata = {
-  title: 'Our Services',
-  description: "Explore SUSALI's proposed healthcare coordination services, including referral support, hospital collaboration and follow-up communication.",
+  title: 'SUSALI Services',
+  description: "SUSALI Services — Connected Healthcare & Patient Support",
 };
 
 export default function Services() {
   return <>
-    <PageHero tag="WHAT WE DO" title="Connected support" accent="at every step." description="A people-centered approach to coordination, built around clearer communication and better healthcare connections." />
+    <PageHero tag="HOW WE HELP" title="Connecting You to" accent="the Care Journey." description="Healthcare involves more than appointments and treatment. It involves people, information, decisions and continued care. SUSALI brings important healthcare coordination services together." />
 
     <section className="section-space">
       <div className="container">
-        <SectionTitle eyebrow="OUR SERVICE AREAS" title="Designed to simplify" accent="the journey." desc="Supporting the connections that matter across the healthcare experience." />
+        <SectionTitle eyebrow="OUR SERVICE PHILOSOPHY" title="Thoughtful Support for Every" accent="Healthcare Connection." desc="Every patient journey begins differently. Our services aim to support meaningful connections between patients and medical professionals." />
         <StaggerContainer className="service-detail-grid" stagger={0.08}>
           {services.map(item => (
             <StaggerItem key={item.id}>
-              <TiltCard className="service-detail">
+              <TiltCard className="service-detail" style={{ height: '100%' }}>
                 <div className="detail-top">
                   <span className="service-icon"><DynamicIcon name={item.icon} size={30} /></span>
                   <span className="detail-no">{item.id}</span>
@@ -42,7 +42,7 @@ export default function Services() {
     <ScrollReveal>
       <section className="process-light section-space">
         <div className="container">
-          <SectionTitle eyebrow="OUR APPROACH" title="How the care" accent="journey connects." desc="A simple overview of the coordination approach, from referral through follow-up." />
+          <SectionTitle eyebrow="HOW SUSALI WORKS" title="From the First Connection to" accent="Continued Care." desc="Every healthcare journey is different. SUSALI helps bring the important steps together in one connected experience." />
           <Journey />
         </div>
       </section>

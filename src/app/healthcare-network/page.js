@@ -1,47 +1,48 @@
 import Link from 'next/link';
-import { ArrowUpRight, Building2, UsersRound, GitPullRequestArrow, HeartPulse, Network, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, Building2, UsersRound, GitPullRequestArrow, HeartPulse, Network, ShieldCheck, CheckCircle2, Stethoscope, ScanLine } from 'lucide-react';
 import { PageHero, SectionTitle, CTA, Eyebrow, Journey } from '@/components/Shared';
 import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
 import TiltCard from '@/components/TiltCard';
 import MagneticButton from '@/components/MagneticButton';
 
 export const metadata = {
-  title: 'Healthcare Network',
-  description: "Learn about SUSALI's healthcare collaboration vision and how hospitals, patients and care teams can become better connected.",
+  title: 'SUSALI Healthcare Network',
+  description: "SUSALI Healthcare Network — Connecting Patients and Doctors",
 };
 
 const groups = [
-  { icon: Building2, title: 'Healthcare facilities', desc: 'Clinical institutions remain responsible for delivering professional medical care.' },
-  { icon: UsersRound, title: 'Coordination teams', desc: 'Support communication and facilitate practical steps across referral pathways.' },
-  { icon: HeartPulse, title: 'Patients & families', desc: 'The people at the center of each healthcare journey and its next steps.' },
-  { icon: GitPullRequestArrow, title: 'Referral channels', desc: 'Help relevant care information move through structured, appropriate pathways.' },
+  { icon: HeartPulse, title: 'Patients', desc: 'Through their registered profiles, patients manage referrals, view appointments and access medical documents.' },
+  { icon: Stethoscope, title: 'Doctors', desc: 'Doctors play the essential clinical role in evaluating health concerns and recommending treatment.' },
+  { icon: Building2, title: 'Hospitals', desc: 'Participating hospitals provide the medical facilities, professional expertise and treatment services required.' },
+  { icon: UsersRound, title: 'Coordination Teams', desc: 'Teams help facilitate administrative steps surrounding referrals, appointment arrangements and communication.' },
+  { icon: ScanLine, title: 'Diagnostic Services', desc: 'Laboratory investigations and medical scans provide valuable information for diagnosis and treatment decisions.' },
 ];
 
 export default function NetworkPage() {
   return <>
-    <PageHero tag="TOGETHER, CARE GOES FURTHER" title="An ecosystem of" accent="better connections." description="Exploring the power of collaboration across hospitals, support teams, referral channels and the people they serve." />
+    <PageHero tag="A CONNECTED WORLD OF CARE" title="Bringing Patients, Doctors and" accent="Hospitals Together." description="Healthcare becomes more organized when the people and institutions involved can coordinate effectively. Explore how SUSALI connects important healthcare relationships." />
 
     <section className="section-space">
       <div className="container network-intro">
-        <ScrollReveal direction="left">
-          <div>
-            <Eyebrow>OUR NETWORK VISION</Eyebrow>
-            <h2>Collaboration that <span className="blue-text">moves care forward.</span></h2>
-          </div>
-        </ScrollReveal>
-        <ScrollReveal direction="right">
-          <div>
-            <p className="lead">No one experiences healthcare in isolation — and better coordination should reflect that.</p>
-            <p>The SUSALI network concept focuses on bringing relevant healthcare stakeholders into clearer communication, supporting appropriate referrals, smoother coordination and meaningful continuity.</p>
-            <p className="small-muted">Specific partner institutions and locations are not listed until formally verified and approved for publication.</p>
-          </div>
-        </ScrollReveal>
+        <div>
+          <ScrollReveal direction="left">
+            <Eyebrow>THE POWER OF CONNECTION</Eyebrow>
+            <h2>Great Healthcare Depends on <span className="blue-text">Great Connections.</span></h2>
+          </ScrollReveal>
+        </div>
+        <div>
+          <ScrollReveal direction="right">
+            <p className="lead">Behind every successful healthcare experience are people working together.</p>
+            <p>Patients need clear information about where to go and what comes next. Doctors need appropriate medical context to assess and guide treatment. Hospitals manage consultations, investigations, admissions and treatment services.</p>
+            <p>Our healthcare network concept is built around the belief that better communication can make healthcare experiences more organized and supportive.</p>
+          </ScrollReveal>
+        </div>
       </div>
       <div className="container">
-        <StaggerContainer className="network-groups" stagger={0.1}>
+        <StaggerContainer className="network-groups" stagger={0.1} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', display: 'grid', gap: '18px' }}>
           {groups.map(({ icon: Icon, ...g }) => (
             <StaggerItem key={g.title}>
-              <TiltCard className="network-group">
+              <TiltCard className="network-group" style={{ height: '100%' }}>
                 <span><Icon size={26} /></span>
                 <h3>{g.title}</h3>
                 <p>{g.desc}</p>
@@ -54,8 +55,6 @@ export default function NetworkPage() {
 
     <section className="network-highlight section-space">
       <div className="container network-highlight-grid">
-        
-        {/* FIX: Applied connect-art directly to ScrollReveal to maintain CSS Grid alignment */}
         <ScrollReveal direction="left" className="connect-art">
           <span className="connect-main">S</span>
           <span className="connect-ring r1" />
@@ -65,32 +64,32 @@ export default function NetworkPage() {
           <span className="connect-bubble b3"><UsersRound size={22} /></span>
         </ScrollReveal>
 
-        <ScrollReveal direction="right">
-          <div>
-            <Eyebrow light>CONNECTED BY PURPOSE</Eyebrow>
-            <h2>Different roles.<br /><span>One shared direction.</span></h2>
-            <p>From coordinating an appointment to communicating follow-up needs, connecting the right people at the right moments can make care journeys easier to navigate.</p>
+        <div>
+          <ScrollReveal direction="right">
+            <Eyebrow light>CONNECTING STAGES OF CARE</Eyebrow>
+            <h2>One Network.<br /><span>Different Healthcare Needs.</span></h2>
+            <p>A patient's journey may involve different forms of medical attention, from general and specialist consultations to diagnostics, inpatient care and surgical treatment.</p>
             <div className="highlight-checks">
-              <span><CheckCircle2 /> Shared understanding</span>
-              <span><CheckCircle2 /> Clearer communication</span>
-              <span><CheckCircle2 /> Patient-centered pathways</span>
+              <span><CheckCircle2 /> Clearer Communication</span>
+              <span><CheckCircle2 /> Better Information Continuity</span>
+              <span><CheckCircle2 /> Organized Healthcare Journeys</span>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
 
     <ScrollReveal>
       <section className="section-space">
         <div className="container">
-          <SectionTitle eyebrow="JOIN THE CONVERSATION" title="Interested in" accent="collaborating?" desc="Healthcare institutions and organizations can connect with SUSALI to explore opportunities when partnership enquiries are enabled." />
+          <SectionTitle eyebrow="GROWING THROUGH COLLABORATION" title="Building Meaningful" accent="Healthcare Relationships." desc="We believe the future of healthcare connectivity depends on meaningful collaboration. We welcome conversations with healthcare organizations." />
           <div className="partnership-panel">
             <div>
-              <h3>Let's explore what connected healthcare can make possible.</h3>
-              <p>Talk to our team about your organization and potential areas for collaboration.</p>
+              <h3>Better Healthcare Connections Start with Collaboration.</h3>
+              <p>Discover how SUSALI is working toward a more connected healthcare experience.</p>
             </div>
             <MagneticButton>
-              <Link className="btn btn-primary" href="/contact">Contact SUSALI <ArrowUpRight size={18} /></Link>
+              <Link className="btn btn-primary" href="/contact">Connect With Our Team <ArrowUpRight size={18} /></Link>
             </MagneticButton>
           </div>
         </div>

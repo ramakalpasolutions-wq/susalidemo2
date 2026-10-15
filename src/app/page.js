@@ -11,8 +11,8 @@ import MagneticButton from '@/components/MagneticButton';
 import TextReveal from '@/components/TextReveal';
 
 export const metadata = {
-  title: 'Connected healthcare, thoughtfully designed | SUSALI',
-  description: 'Discover SUSALI: a human-centered approach to patient support, referral coordination, hospital connections and continued care.',
+  title: 'SUSALI — Bridging the Gap Between Patients and Doctors',
+  description: "Finding the right path to medical care should feel simpler, clearer and more connected.",
 };
 
 export default function Home() {
@@ -23,27 +23,27 @@ export default function Home() {
       <div className="og-hero-glow glow-b" />
       <div className="og-hero-inner container">
         <ScrollReveal delay={0.1}>
-          <span className="og-hero-badge"><ShieldCheck size={16} /> CONNECTING CARE WITH COMPASSION</span>
+          <span className="og-hero-badge"><ShieldCheck size={16} /> CONNECTING PEOPLE. EMPOWERING HEALTHCARE.</span>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
           <h1>
-            <TextReveal text="Better connections." delay={0.2} />
+            <TextReveal text="Bridging the Gap Between" delay={0.2} />
             <br />
             <span>
-              <TextReveal text="Brighter care journeys." delay={0.45} />
+              <TextReveal text="Patients and Doctors." delay={0.45} />
             </span>
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={0.5}>
-          <p>Making healthcare feel more connected through thoughtful coordination, trusted collaboration and people-first support.</p>
+          <p>Because Every Healthcare Journey Deserves the Right Connection. From your first consultation to continued care, SUSALI helps you stay connected to the moments that matter most.</p>
         </ScrollReveal>
         <ScrollReveal delay={0.65}>
           <div className="og-hero-actions">
             <MagneticButton>
-              <Link href="/services" className="og-pill-button og-pill-primary">Explore our services <ArrowUpRight size={19} /></Link>
+              <Link href="/services" className="og-pill-button og-pill-primary">Discover Our Services <ArrowUpRight size={19} /></Link>
             </MagneticButton>
             <MagneticButton>
-              <Link href="/about" className="og-pill-button og-pill-soft">Discover SUSALI <ArrowRight size={18} /></Link>
+              <Link href="#about-preview" className="og-pill-button og-pill-soft">How SUSALI Works <ArrowRight size={18} /></Link>
             </MagneticButton>
           </div>
         </ScrollReveal>
@@ -69,23 +69,19 @@ export default function Home() {
             </div>
             <div className="og-intro-floating">
               <span className="og-mini-icon mint"><CheckCircle2 size={19} /></span>
-              <div><strong>Human-centered</strong><small>Every connection counts</small></div>
+              <div><strong>At SUSALI,</strong><small>Every connection begins with care.</small></div>
             </div>
             <span className="og-intro-bottom-pill"><Sparkles size={15} /> Care. Clarity. Connection.</span>
           </div>
         </ScrollReveal>
         <ScrollReveal direction="right">
           <div className="og-intro-copy">
-            <span className="og-kicker">01 / WELCOME TO SUSALI</span>
-            <h2>Healthcare works better <em>together.</em></h2>
-            <p className="og-lead">A more thoughtful way to connect patients, healthcare providers and the people who support them.</p>
-            <p>We believe that clear communication and meaningful collaboration can make the healthcare experience easier to navigate. SUSALI is focused on bringing those important connections closer together.</p>
-            <Link href="/about" className="og-text-link">Get to know us <ArrowUpRight size={19} /></Link>
-            <div className="og-intro-traits">
-              <span><ShieldCheck size={19} /> Built on trust</span>
-              <span><HeartHandshake size={19} /> People first</span>
-              <span><Network size={19} /> Better together</span>
-            </div>
+            <span className="og-kicker">WELCOME TO SUSALI</span>
+            <h2>Healthcare Is Better When We're <em>Connected.</em></h2>
+            <p className="og-lead">Every patient has a story. Every health concern deserves attention. And every journey toward better health begins with the right connection.</p>
+            <p>Navigating healthcare can sometimes feel overwhelming. Finding the right hospital, coordinating appointments, understanding the next steps in treatment, and keeping important medical documents organized can create challenges for patients and their families.</p>
+            <p>By bringing patient information, hospital coordination, treatment updates and medical records into one digital experience, we aim to make healthcare interactions more organized and easier to navigate.</p>
+            <Link href="/about" className="og-text-link">Get to Know SUSALI <ArrowUpRight size={19} /></Link>
           </div>
         </ScrollReveal>
       </div>
@@ -96,8 +92,8 @@ export default function Home() {
       <div className="container">
         <ScrollReveal>
           <div className="og-section-heading">
-            <div><span className="og-kicker">02 / WHAT WE DO</span><h2>Thoughtful support at <em>every step.</em></h2></div>
-            <p>A connected approach to the moments that matter across the healthcare experience.</p>
+            <div><span className="og-kicker">WHAT WE DO</span><h2>Thoughtful Healthcare Connections. <em>Meaningful Support.</em></h2></div>
+            <p>A connected healthcare experience is built through several important services working together.</p>
           </div>
         </ScrollReveal>
         <StaggerContainer className="og-services-grid" stagger={0.08}>
@@ -116,7 +112,7 @@ export default function Home() {
         <ScrollReveal delay={0.2}>
           <div className="og-section-bottom">
             <span>One connected ecosystem. A more human experience.</span>
-            <Link href="/services" className="og-text-link">View all services <ArrowUpRight size={18} /></Link>
+            <Link href="/services" className="og-text-link">Explore All Services <ArrowUpRight size={18} /></Link>
           </div>
         </ScrollReveal>
       </div>
@@ -127,9 +123,9 @@ export default function Home() {
       <section className="og-journey-section section-space">
         <div className="container">
           <div className="og-section-heading og-section-heading-center">
-            <span className="og-kicker">03 / THE SUSALI APPROACH</span>
-            <h2>A clearer path to <em>connected care.</em></h2>
-            <p>Explore a simplified illustration of the healthcare coordination journey. Choose any stage to learn more.</p>
+            <span className="og-kicker">YOUR JOURNEY WITH SUSALI</span>
+            <h2>From the First Connection to <em>Continued Care.</em></h2>
+            <p>Every healthcare journey is different. SUSALI helps bring the important steps together in one connected experience.</p>
           </div>
           <InteractiveJourney />
         </div>
@@ -139,40 +135,42 @@ export default function Home() {
     {/* ── NETWORK ── */}
     <section className="og-network-section section-space">
       <div className="container og-network-layout">
-        <ScrollReveal direction="left" style={{ minWidth: 0 }}>
-          <div>
-            <span className="og-kicker">04 / OUR HEALTHCARE NETWORK</span>
-            <h2>Stronger care begins with <em>better connections.</em></h2>
-            <p className="og-lead">A collaborative mindset that brings people, healthcare facilities and support teams closer.</p>
-            <p>SUSALI's network vision centers on coordination and meaningful communication, while healthcare professionals remain responsible for clinical decisions and treatment.</p>
-            <div style={{ marginTop: 16 }}>
+        <div>
+          <ScrollReveal direction="left">
+            <span className="og-kicker">OUR CONNECTED HEALTHCARE ECOSYSTEM</span>
+            <h2>Better Connections. <em>Better Healthcare Experiences.</em></h2>
+            <p className="og-lead">No single interaction defines a patient's healthcare journey.</p>
+            <p>Through connected referral information, arranged hospital appointments, available medical records and continued treatment documentation, we strive to create a healthcare experience that feels less fragmented.</p>
+            <div style={{ marginTop: 24 }}>
               <MagneticButton>
                 <Link href="/healthcare-network" className="og-pill-button og-pill-primary">
-                  Explore the network <ArrowUpRight size={18} />
+                  Discover Our Healthcare Network <ArrowUpRight size={18} />
                 </Link>
               </MagneticButton>
             </div>
-          </div>
-        </ScrollReveal>
-        <ScrollReveal direction="right" style={{ minWidth: 0 }}>
-          <div className="og-network-art">
-            <div className="og-network-ring ring-a" />
-            <div className="og-network-ring ring-b" />
-            <div className="og-network-core">
-              <Network size={48} />
-              <strong>SUSALI</strong>
-              <small>Connected care</small>
+          </ScrollReveal>
+        </div>
+        <div>
+          <ScrollReveal direction="right">
+            <div className="og-network-art">
+              <div className="og-network-ring ring-a" />
+              <div className="og-network-ring ring-b" />
+              <div className="og-network-core">
+                <Network size={48} />
+                <strong>SUSALI</strong>
+                <small>Connected Ecosystem</small>
+              </div>
+              <span className="og-network-node nn1"><HeartHandshake size={25} /><small>Support</small></span>
+              <span className="og-network-node nn2"><Network size={25} /><small>Teams</small></span>
+              <span className="og-network-node nn3"><Activity size={25} /><small>Care</small></span>
+              <span className="og-network-node nn4"><ShieldCheck size={25} /><small>Trust</small></span>
             </div>
-            <span className="og-network-node nn1"><HeartHandshake size={25} /><small>Support</small></span>
-            <span className="og-network-node nn2"><Network size={25} /><small>Teams</small></span>
-            <span className="og-network-node nn3"><Activity size={25} /><small>Care</small></span>
-            <span className="og-network-node nn4"><ShieldCheck size={25} /><small>Trust</small></span>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
 
-    {/* ── STATS CARD (SINGLE RENDERED BLOCK) ── */}
+    {/* ── STATS CARD ── */}
     <section className="section-space">
       <div className="container">
         <ScrollReveal>
@@ -201,7 +199,7 @@ export default function Home() {
       <div className="container og-faq-layout">
         <ScrollReveal>
           <div>
-            <span className="og-kicker">05 / YOUR QUESTIONS, ANSWERED</span>
+            <span className="og-kicker">YOUR QUESTIONS, ANSWERED</span>
             <h2>Curiosity is the start of <em>clarity.</em></h2>
             <p>We've answered some common questions about SUSALI and our approach to connected healthcare.</p>
             <Link href="/faqs" className="og-text-link">Browse all FAQs <ArrowUpRight size={19} /></Link>
@@ -216,12 +214,17 @@ export default function Home() {
       <section className="og-final-section">
         <div className="container">
           <div className="og-final-card">
-            <span className="og-kicker">THE NEXT CONNECTION STARTS HERE</span>
-            <h2>Let's create better<br /><em>healthcare connections.</em></h2>
-            <p>Have a question or interested in connecting with SUSALI? We'd love to hear from you.</p>
-            <MagneticButton>
-              <Link href="/contact" className="og-pill-button og-pill-primary">Get in touch <ArrowUpRight size={18} /></Link>
-            </MagneticButton>
+            <span className="og-kicker">FINAL CALL TO ACTION</span>
+            <h2>A Healthier Tomorrow Begins<br /><em>with Better Connections.</em></h2>
+            <p>Whether you are beginning a healthcare journey, continuing treatment or learning about healthcare collaboration, discover how SUSALI brings people and care pathways closer together.</p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+              <MagneticButton>
+                <Link href="/services" className="og-pill-button og-pill-primary">Explore SUSALI <ArrowUpRight size={18} /></Link>
+              </MagneticButton>
+              <MagneticButton>
+                <Link href="/contact" className="og-pill-button og-pill-primary" style={{ background: 'rgba(255,255,255,0.1)' }}>Contact Us <ArrowRight size={18} /></Link>
+              </MagneticButton>
+            </div>
             <div className="og-final-orb" />
           </div>
         </div>

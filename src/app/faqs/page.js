@@ -5,13 +5,13 @@ import FaqExplorer from '@/components/FaqExplorer';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata = {
-  title: 'Frequently Asked Questions',
-  description: "Answers to common questions about SUSALI, healthcare coordination, referrals and network collaboration.",
+  title: 'SUSALI FAQs',
+  description: "SUSALI FAQs — Healthcare Services, Appointments & Records",
 };
 
 export default function Faqs() {
   return <>
-    <PageHero tag="HELPFUL INFORMATION" title="Questions?" accent="We're here to clarify." description="Explore frequently asked questions about our vision, services and approach to connected healthcare." />
+    <PageHero tag="HERE TO MAKE THINGS CLEARER" title="Your Questions." accent="Our Answers." description="Understanding your healthcare journey matters. Explore helpful information about SUSALI, registration, connecting with hospitals, medical records and continued care." />
 
     <section className="section-space">
       <div className="container faq-page-layout">
@@ -20,9 +20,9 @@ export default function Faqs() {
             <SectionTitle eyebrow="FAQS" title="Everything you" accent="need to know." desc="Browse answers by topic, or get in touch for a conversation about SUSALI." />
             <div className="help-box">
               <MessageCircleQuestion size={27} />
-              <h3>Still have a question?</h3>
-              <p>We'd be happy to help you find the right information.</p>
-              <Link href="/contact" className="text-link">Contact us <ArrowUpRight size={17} /></Link>
+              <h3>Still Have Questions?</h3>
+              <p>We're here to help you find clarity.</p>
+              <Link href="/contact" className="text-link">Contact SUSALI <ArrowUpRight size={17} /></Link>
             </div>
           </div>
         </ScrollReveal>
