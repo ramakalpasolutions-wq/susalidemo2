@@ -51,7 +51,7 @@ export default function Header() {
             alt="SUSALI Logo" 
             width={150} 
             height={42} 
-            style={{ objectFit: 'contain', height: '90px', width: 'auto' }}
+            style={{ objectFit: 'contain', height: '120px', width: 'auto' }}
             priority
           />
         </Link>

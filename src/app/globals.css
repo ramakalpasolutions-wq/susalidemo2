@@ -182,3 +182,45 @@ h1,h2,h3,h4{letter-spacing:-.055em}
     margin-left: auto;
   }
 }
+/* ==========================================================
+   SUSALI — TRANSPARENT HEADER & FOOTER
+   Keep this block last so it overrides earlier theme styles.
+   ========================================================== */
+.og-header,
+.og-header.is-scrolled {
+  background: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+.og-nav {
+  background: transparent;
+}
+
+.footer,
+.footer-top,
+.footer-bottom {
+  background: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+/* The page background is light, so use readable footer text. */
+.footer { color: #2B303C; }
+.footer h4 { color: #34394A; }
+.footer-top p,
+.footer-connect p { color: #6F7181; }
+.footer-note { color: #8F73A0; }
+.footer-links a,
+.footer-connect > a:not(.footer-button) { color: #546481; }
+.footer .footer-button { color: #3A3D50; }
+.footer a:hover { color: #8F73A0; }
+.footer-bottom {
+  color: #6F7181;
+  border-top: 1px solid #E9E5EE;
+}
