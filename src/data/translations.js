@@ -14,7 +14,7 @@ export const translations = {
       heroTitle1: 'Better Connections.',
       heroTitle2: 'Better Healthcare Journeys.',
       heroSub: 'Bridging the Gap Between Patients and Doctors.',
-      heroDesc: 'Healthcare is more than an appointment. It is a journey of questions, decisions, conversations, treatment, and continued care. SUSALI brings together patient guidance, structured referral information, hospital appointment coordination, and available medical records in one connected healthcare experience.',
+      heroDesc: 'Healthcare is not just about accessing medical services — it is about guiding people through every stage of their care. SUSALI connects patients with healthcare providers through structured referrals, appointment coordination, patient guidance, and organized medical information. By bringing these essential services together, we strive to make healthcare journeys more accessible, coordinated, and seamless — helping patients navigate their next steps with greater clarity and confidence.',
       btnPrimary: 'Explore Our Services',
       btnSecondary: 'Discover How SUSALI Works',
       cards: {
@@ -277,7 +277,7 @@ export const translations = {
       heroTitle1: 'మెరుగైన అనుసంధానం.',
       heroTitle2: 'మెరుగైన ఆరోగ్య సంరక్షణ ప్రయాణం.',
       heroSub: 'రోగులకు, వైద్యులకు మధ్య అనుసంధాన వారధి — SUSALI.',
-      heroDesc: 'ఆరోగ్య సంరక్షణ అనేది ఒక్క డాక్టర్ అపాయింట్‌మెంట్‌తో ముగిసే ప్రక్రియ కాదు. సందేహాలు, వైద్య పరీక్షలు, డాక్టర్ల సలహాలు, చికిత్స, తదుపరి సందర్శనలు — ఇవన్నీ కలిసి ఒక ఆరోగ్య ప్రయాణంగా మారుతాయి. ఈ దశల మధ్య సరైన అనుసంధానం ఉంటే రోగులు తమ ఆరోగ్య అవసరాలను మరింత స్పష్టంగా అర్థం చేసుకోగలుగుతారు.',
+      heroDesc: 'ఆరోగ్య సంరక్షణ అనేది కేవలం వైద్య సేవలను పొందడం మాత్రమే కాదు — ప్రతి దశలోనూ ప్రజలకు సరైన మార్గదర్శకత్వం అందించడం. క్రమబద్ధమైన రిఫరల్స్, అపాయింట్‌మెంట్ సమన్వయం, రోగులకు తగిన మార్గదర్శకత్వం మరియు సరిగ్గా అమర్చిన వైద్య సమాచారం ద్వారా SUSALI రోగులను వైద్య సేవలతో అనుసంధానిస్తుంది. ఈ ముఖ్యమైన సేవలన్నింటినీ ఒకే చోటికి తీసుకురావడం ద్వారా, ఆరోగ్య సంరక్షణ ప్రయాణాలను మరింత సులభంగా, సమన్వయంగా మరియు నిరంతరాయంగా మార్చడానికి మేము కృషి చేస్తున్నాము — రోగులు తమ తదుపరి అడుగులను మరింత స్పష్టతతో మరియు నమ్మకంతో ముందుకు వేయడానికి ఇది సహాయపడుతుంది.',
       btnPrimary: 'మా సేవలను తెలుసుకోండి',
       btnSecondary: 'SUSALI ఎలా పనిచేస్తుందో చూడండి',
       cards: {
@@ -456,7 +456,7 @@ export const translations = {
       collabBtn: 'SUSALIతో మాట్లాడండి',
       ctaTitle1: 'మనుషులను, సమాచారాన్ని, వైద్య సేవలను',
       ctaTitle2: 'అనుసంధానిస్తూ.',
-      ctaDesc: 'మరింత అనుసంధానమైన ఆరోగ్య ప్రయాణానికి తోడ్పడే సంబంధాలు, ప్రక్రియల గురించి తెలుసుకోండి.',
+      ctaDesc: 'మరింత అనుసంధానమైన ఆరోగ్య ప్రయాణానికి తోడ్పడే संबंधాలు, ప్రక్రియల గురించి తెలుసుకోండి.',
       ctaBtn1: 'మా సేవలు',
       ctaBtn2: 'మమ్మల్ని సంప్రదించండి',
     },
