@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -11,6 +12,7 @@ import {
   HeartHandshake,
   Network,
   Activity,
+  X,
 } from 'lucide-react';
 import { HeroVisual, InteractiveJourney } from '@/components/OmbreExperience';
 import DynamicIcon from '@/components/Icons';
@@ -27,12 +29,12 @@ export default function Home() {
   const { t } = useLanguage();
   const h = t.home;
 
+  const [activeService, setActiveService] = useState(null);
+
   return (
     <>
       {/* ── HERO ── */}
-           {/* ── HERO ── */}
       <section className="og-hero-v2">
-        {/* Background Graphic Image */}
         <div className="og-hero-bg-container">
           <Image
             src="/hero-bg.jpg"
@@ -47,7 +49,6 @@ export default function Home() {
 
         <div className="container og-hero-inner-v2">
           <div className="og-hero-grid-v2">
-            {/* LEFT COLUMN: Main Text & CTAs */}
             <div className="og-hero-content-left">
               <ScrollReveal delay={0.1}>
                 <div className="og-hero-badge-v2">
@@ -84,19 +85,13 @@ export default function Home() {
               <ScrollReveal delay={0.5}>
                 <div className="og-hero-actions-v2">
                   <MagneticButton>
-                    <Link
-                      href="/services"
-                      className="og-pill-button og-pill-dark"
-                    >
+                    <Link href="/services" className="og-pill-button og-pill-dark">
                       Explore Our Services <ArrowUpRight size={18} />
                     </Link>
                   </MagneticButton>
 
                   <MagneticButton>
-                    <Link
-                      href="#about-preview"
-                      className="og-pill-button og-pill-glass"
-                    >
+                    <Link href="#about-preview" className="og-pill-button og-pill-glass">
                       Discover How SUSALI Works <ArrowRight size={18} />
                     </Link>
                   </MagneticButton>
@@ -104,11 +99,9 @@ export default function Home() {
               </ScrollReveal>
             </div>
 
-            {/* RIGHT COLUMN: Spacing area for doctor image in background */}
             <div className="og-hero-visual-space" />
           </div>
 
-          {/* FULL WIDTH FLOATING GLASS CARDS (Spans across left, middle, right) */}
           <HeroVisual />
         </div>
       </section>
@@ -186,7 +179,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
+      {/* ── SERVICES SECTION ── */}
       <section className="og-services section-space">
         <div className="container">
           <ScrollReveal>
@@ -200,26 +193,59 @@ export default function Home() {
               <p>{h.servicesDesc}</p>
             </div>
           </ScrollReveal>
+
           <StaggerContainer className="og-services-grid" stagger={0.08}>
             {t.services.list.map((service, i) => (
               <StaggerItem key={service.id}>
-                <Link
-                  href="/services"
+                <div
+                  onClick={() => setActiveService(service)}
                   className={'og-service-card og-service-' + i}
+                  style={{
+                    cursor: 'pointer',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
                 >
-                  <span className="og-service-icon">
-                    <DynamicIcon name="HeartPulse" size={27} />
-                  </span>
-                  <span className="og-service-number">{service.id} / 06</span>
-                  <h3>{service.title}</h3>
-                  <p>{service.desc}</p>
-                  <span className="og-service-arrow">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                    <span className="og-service-icon">
+                      <DynamicIcon name={service.icon || 'HeartPulse'} size={27} />
+                    </span>
+                    <span className="og-service-number">{service.id} / 06</span>
+                  </div>
+
+                  {/* IMAGE */}
+                  {service.image && (
+                    <div
+                      style={{
+                        position: 'relative',
+                        width: '100%',
+                        height: 160,
+                        borderRadius: 16,
+                        overflow: 'hidden',
+                        marginBottom: 16,
+                      }}
+                    >
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                  )}
+
+                  <h3 style={{ marginTop: 0, marginBottom: 'auto' }}>{service.title}</h3>
+
+                  <span className="og-service-arrow" style={{ marginTop: 20 }}>
                     <ArrowUpRight size={21} />
                   </span>
-                </Link>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
+
           <ScrollReveal delay={0.2}>
             <div className="og-section-bottom">
               <span>One connected ecosystem.</span>
@@ -259,10 +285,7 @@ export default function Home() {
               <p className="og-lead">{h.networkDesc}</p>
               <div style={{ marginTop: 24 }}>
                 <MagneticButton>
-                  <Link
-                    href="/healthcare-network"
-                    className="og-pill-button og-pill-primary"
-                  >
+                  <Link href="/healthcare-network" className="og-pill-button og-pill-primary">
                     {h.networkBtn} <ArrowUpRight size={18} />
                   </Link>
                 </MagneticButton>
@@ -368,10 +391,7 @@ export default function Home() {
                 }}
               >
                 <MagneticButton>
-                  <Link
-                    href="/services"
-                    className="og-pill-button og-pill-primary"
-                  >
+                  <Link href="/services" className="og-pill-button og-pill-primary">
                     {h.ctaBtnPrimary} <ArrowUpRight size={18} />
                   </Link>
                 </MagneticButton>
@@ -390,6 +410,111 @@ export default function Home() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* ── SERVICE DESCRIPTION MODAL POPUP ── */}
+      {activeService && (
+        <div
+          className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-6"
+          style={{
+            backgroundColor: 'rgba(20, 24, 38, 0.55)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+          }}
+          onClick={() => setActiveService(null)}
+        >
+          <div
+            className="relative w-full max-w-2xl p-6 sm:p-8 overflow-y-auto"
+            style={{
+              background: 'rgba(255, 255, 255, 0.96)',
+              backdropFilter: 'blur(28px)',
+              WebkitBackdropFilter: 'blur(28px)',
+              borderRadius: '32px',
+              border: '1px solid rgba(255, 255, 255, 0.95)',
+              boxShadow: '0 30px 60px rgba(30, 25, 45, 0.35)',
+              maxHeight: '90vh',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActiveService(null)}
+              className="absolute top-5 right-5 z-10 p-2 rounded-full hover:bg-black/10 bg-white/80 backdrop-blur-md transition-colors"
+              style={{ color: '#374151', border: '1px solid rgba(0,0,0,0.1)', cursor: 'pointer' }}
+            >
+              <X size={20} />
+            </button>
+
+            {/* MODAL IMAGE */}
+            {activeService.image && (
+              <div
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: 220,
+                  borderRadius: 20,
+                  overflow: 'hidden',
+                  marginBottom: 24,
+                }}
+              >
+                <Image
+                  src={activeService.image}
+                  alt={activeService.title}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  priority
+                />
+              </div>
+            )}
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+              <span
+                style={{
+                  display: 'grid',
+                  placeItems: 'center',
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: '16px',
+                  background: 'linear-gradient(140deg, #F4E8F7, #E8E5FB)',
+                  color: '#8D79A2',
+                  border: '1px solid #ffffff',
+                }}
+              >
+                <DynamicIcon name={activeService.icon || 'HeartPulse'} size={26} />
+              </span>
+              <span style={{ fontSize: '0.85rem', fontWeight: '800', color: '#917E9B', letterSpacing: '0.12em' }}>
+                SERVICE {activeService.id} / 06
+              </span>
+            </div>
+
+            <h2 style={{ fontSize: '1.85rem', fontWeight: '850', lineHeight: '1.25', marginBottom: '1rem', color: '#2B303C' }}>
+              {activeService.title}
+            </h2>
+
+            <p style={{ fontSize: '1rem', lineHeight: '1.75', color: '#546481', marginBottom: '1.75rem' }}>
+              {activeService.desc}
+            </p>
+
+            {activeService.detail && (
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  padding: '0.875rem 1.25rem',
+                  background: '#F8F6FC',
+                  borderRadius: '16px',
+                  border: '1px solid #E9E5EE',
+                  color: '#34394A',
+                  fontWeight: '600',
+                  fontSize: '0.9rem',
+                }}
+              >
+                <CheckCircle2 size={20} style={{ color: '#8F73A0', flexShrink: 0 }} />
+                <span>{activeService.detail}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -1,6 +1,8 @@
 'use client';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
-import Link from 'next/link';
+
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { ArrowUpRight, CheckCircle2, X } from 'lucide-react';
 import DynamicIcon from '@/components/Icons';
 import { PageHero, SectionTitle, Journey, CTA } from '@/components/Shared';
 import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
@@ -11,42 +13,307 @@ export default function Services() {
   const { t } = useLanguage();
   const s = t.services;
 
-  return <>
-    <PageHero tag={s.heroTag} title={s.heroTitle} accent={s.heroAccent} description={s.heroDesc} />
+  const [activeService, setActiveService] = useState(null);
 
-    <section className="section-space">
-      <div className="container">
-        <SectionTitle eyebrow={s.philosophyKicker} title={s.philosophyTitle1} accent={s.philosophyTitle2} desc={s.philosophyP} />
-        <StaggerContainer className="service-detail-grid" stagger={0.08}>
-          {s.list.map(item => (
-            <StaggerItem key={item.id}>
-              <TiltCard className="service-detail" style={{ height: '100%' }}>
-                <div className="detail-top">
-                  <span className="service-icon"><DynamicIcon name="HeartPulse" size={30} /></span>
-                  <span className="detail-no">{item.id}</span>
-                </div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                <div className="detail-foot">
-                  <CheckCircle2 size={17} />
-                  <span>{item.detail}</span>
-                </div>
-              </TiltCard>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setActiveService(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
-    <ScrollReveal>
-      <section className="process-light section-space">
+  return (
+    <>
+      <PageHero
+        tag={s.heroTag}
+        title={s.heroTitle}
+        accent={s.heroAccent}
+        description={s.heroDesc}
+      />
+
+      <section className="section-space">
         <div className="container">
-          <SectionTitle eyebrow={s.journeyKicker} title={s.journeyTitle1} accent={s.journeyTitle2} />
-          <Journey />
+          <SectionTitle
+            eyebrow={s.philosophyKicker}
+            title={s.philosophyTitle1}
+            accent={s.philosophyTitle2}
+            desc={s.philosophyP}
+          />
+
+          <StaggerContainer className="service-detail-grid" stagger={0.08}>
+            {s.list.map((item) => (
+              <StaggerItem key={item.id}>
+                <div
+                  onClick={() => setActiveService(item)}
+                  style={{ cursor: 'pointer', height: '100%' }}
+                  className="group"
+                >
+                  <TiltCard
+                    className="service-detail"
+                    style={{
+                      height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      padding: '24px',
+                    }}
+                  >
+                    <div>
+                      <div
+                        className="detail-top"
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          marginBottom: '16px',
+                        }}
+                      >
+                        <span
+                          className="service-icon"
+                          style={{
+                            width: '48px',
+                            height: '48px',
+                            borderRadius: '14px',
+                            display: 'grid',
+                            placeItems: 'center',
+                          }}
+                        >
+                          <DynamicIcon name={item.icon || 'HeartPulse'} size={24} />
+                        </span>
+                        <span
+                          className="detail-no"
+                          style={{ fontSize: '12px', fontWeight: '800', letterSpacing: '0.1em' }}
+                        >
+                          {item.id} / 06
+                        </span>
+                      </div>
+
+                      {/* Service Image */}
+                      {item.image && (
+                        <div
+                          style={{
+                            position: 'relative',
+                            width: '100%',
+                            height: '180px',
+                            borderRadius: '16px',
+                            overflow: 'hidden',
+                            marginBottom: '20px',
+                          }}
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            style={{ objectFit: 'cover' }}
+                            className="transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
+                      )}
+
+                      <h3
+                        style={{
+                          fontSize: '1.25rem',
+                          fontWeight: '800',
+                          margin: '0',
+                          color: 'var(--og-ink)',
+                          lineHeight: '1.3',
+                        }}
+                      >
+                        {item.title}
+                      </h3>
+                    </div>
+
+                    <div
+                      style={{
+                        marginTop: '24px',
+                        paddingTop: '16px',
+                        borderTop: '1px solid var(--line)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: '12px',
+                          fontWeight: '750',
+                          color: '#8F73A0',
+                          letterSpacing: '0.04em',
+                        }}
+                      >
+                        Click for description
+                      </span>
+                      <span
+                        style={{ color: '#8F73A0', display: 'flex', alignItems: 'center' }}
+                        className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                      >
+                        <ArrowUpRight size={20} />
+                      </span>
+                    </div>
+                  </TiltCard>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
-    </ScrollReveal>
 
-    <CTA small />
-  </>;
+      <ScrollReveal>
+        <section className="process-light section-space">
+          <div className="container">
+            <SectionTitle eyebrow={s.journeyKicker} title={s.journeyTitle1} accent={s.journeyTitle2} />
+            <Journey />
+          </div>
+        </section>
+      </ScrollReveal>
+
+      <CTA small />
+
+      {/* POP-UP OVERLAY MODAL */}
+      {activeService && (
+        <div
+          className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-6"
+          style={{
+            backgroundColor: 'rgba(20, 24, 38, 0.6)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            animation: 'ogOverlayFadeIn 0.25s ease-out forwards',
+          }}
+          onClick={() => setActiveService(null)}
+        >
+          <div
+            className="relative w-full max-w-2xl p-6 sm:p-8 overflow-y-auto"
+            style={{
+              background: 'rgba(255, 255, 255, 0.96)',
+              backdropFilter: 'blur(28px)',
+              WebkitBackdropFilter: 'blur(28px)',
+              borderRadius: '32px',
+              border: '1px solid rgba(255, 255, 255, 0.95)',
+              boxShadow: '0 30px 60px rgba(30, 25, 45, 0.35)',
+              maxHeight: '90vh',
+              animation: 'ogModalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActiveService(null)}
+              className="absolute top-5 right-5 z-10 p-2 rounded-full transition-colors hover:bg-black/10 bg-white/80 backdrop-blur-md"
+              style={{ color: '#374151', border: '1px solid rgba(0,0,0,0.1)', cursor: 'pointer' }}
+              aria-label="Close"
+            >
+              <X size={20} />
+            </button>
+
+            {activeService.image && (
+              <div
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: '220px',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  marginBottom: '24px',
+                }}
+              >
+                <Image
+                  src={activeService.image}
+                  alt={activeService.title}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  priority
+                />
+              </div>
+            )}
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+              <span
+                style={{
+                  display: 'grid',
+                  placeItems: 'center',
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: '16px',
+                  background: 'linear-gradient(140deg, #F4E8F7, #E8E5FB)',
+                  color: '#8D79A2',
+                  border: '1px solid #ffffff',
+                }}
+              >
+                <DynamicIcon name={activeService.icon || 'HeartPulse'} size={26} />
+              </span>
+              <span
+                style={{
+                  fontSize: '0.85rem',
+                  fontWeight: '800',
+                  color: '#917E9B',
+                  letterSpacing: '0.12em',
+                }}
+              >
+                SERVICE {activeService.id} / 06
+              </span>
+            </div>
+
+            <h2
+              style={{
+                fontSize: '1.85rem',
+                fontWeight: '850',
+                lineHeight: '1.25',
+                marginBottom: '1rem',
+                color: '#2B303C',
+              }}
+            >
+              {activeService.title}
+            </h2>
+
+            <p
+              style={{
+                fontSize: '1rem',
+                lineHeight: '1.75',
+                color: '#546481',
+                marginBottom: '1.75rem',
+              }}
+            >
+              {activeService.desc}
+            </p>
+
+            {activeService.detail && (
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  padding: '0.875rem 1.25rem',
+                  background: '#F8F6FC',
+                  borderRadius: '16px',
+                  border: '1px solid #E9E5EE',
+                  color: '#34394A',
+                  fontWeight: '600',
+                  fontSize: '0.9rem',
+                }}
+              >
+                <CheckCircle2 size={20} style={{ color: '#8F73A0', flexShrink: 0 }} />
+                <span>{activeService.detail}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @keyframes ogOverlayFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @keyframes ogModalPop {
+            from { opacity: 0; transform: scale(0.92) translateY(12px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+          }
+        `,
+        }}
+      />
+    </>
+  );
 }
