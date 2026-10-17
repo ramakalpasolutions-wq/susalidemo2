@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <body>
         <LanguageProvider>
           <ScrollReset />
-          <ScrollProgress />
+          {/* <ScrollProgress /> */}
           <Header />
           <main>{children}</main>
           <Footer />
