@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -11,9 +12,10 @@ import {
   HeartPulse,
   ShieldCheck,
   Stethoscope,
-  UsersRound,
+  User,
 } from 'lucide-react';
 
+/* ── INTERACTIVE JOURNEY COMPONENT ── */
 const stages = [
   {
     title: 'Begin Journey',
@@ -133,156 +135,103 @@ export function InteractiveJourney() {
   );
 }
 
+/* ── HERO VISUAL COMPONENT ── */
+/* ── HERO VISUAL COMPONENT (STYLISH GLASS OVERLAYS & DECORATIONS) ── */
 export function HeroVisual() {
-  /*
-   * ECG path = baseline → small P wave → sharp QRS spike → T wave
-   * Repeated so it fills the card width like a monitor strip.
-   */
   const ecgPink =
-    'M0 52 ' +
-    'L18 52 ' +
-    'C22 52 24 48 28 48 C32 48 34 52 38 52 ' + // P
-    'L48 52 ' +
-    'L52 56 L58 18 L64 68 L70 52 ' + // QRS
-    'L82 52 ' +
-    'C88 52 92 44 98 44 C104 44 108 52 114 52 ' + // T
-    'L130 52 ' +
-    'C134 52 136 48 140 48 C144 48 146 52 150 52 ' + // P
-    'L160 52 ' +
-    'L164 56 L170 18 L176 68 L182 52 ' + // QRS
-    'L194 52 ' +
-    'C200 52 204 44 210 44 C216 44 220 52 226 52 ' + // T
-    'L240 52 ' +
-    'C244 52 246 48 250 48 C254 48 256 52 260 52 ' +
-    'L265 52';
+    'M0 28 L18 28 C22 28 24 24 28 24 C32 24 34 28 38 28 L48 28 L52 32 L58 8 L64 48 L70 28 L82 28 C88 28 92 20 98 20 C104 20 108 28 114 28 L130 28 C134 28 136 24 140 24 C144 24 146 28 150 28 L160 28 L164 32 L170 8 L176 48 L182 28 L194 28';
 
   const ecgBlue =
-    'M0 72 ' +
-    'L22 72 ' +
-    'C26 72 28 68 32 68 C36 68 38 72 42 72 ' + // P
-    'L52 72 ' +
-    'L56 76 L62 38 L68 84 L74 72 ' + // QRS (slightly softer)
-    'L88 72 ' +
-    'C94 72 98 64 104 64 C110 64 114 72 120 72 ' + // T
-    'L138 72 ' +
-    'C142 72 144 68 148 68 C152 68 154 72 158 72 ' + // P
-    'L168 72 ' +
-    'L172 76 L178 38 L184 84 L190 72 ' + // QRS
-    'L204 72 ' +
-    'C210 72 214 64 220 64 C226 64 230 72 236 72 ' + // T
-    'L248 72 ' +
-    'C252 72 254 68 258 68 C262 68 264 72 265 72';
+    'M0 38 L22 38 C26 38 28 34 32 34 C36 34 38 38 42 38 L52 38 L56 42 L62 18 L68 52 L74 38 L88 38 C94 38 98 30 104 30 C110 30 114 38 120 38 L138 38 L142 38 L168 38 L172 42 L178 18 L184 52 L190 38 L200 38';
 
   return (
-    <div
-      className="og-hero-art"
-      aria-label="Illustration of connected healthcare teams and patient support"
-      role="img"
-      style={{ position: 'relative', overflow: 'hidden' }}
-    >
+    <div className="og-hero-visual-container">
+      {/* 3D Decorative Ambient Orbs */}
       <motion.div
-        className="og-hero-halo"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.5 }}
+        className="og-3d-orb orb-teal"
+        animate={{ y: [0, -12, 0], scale: [1, 1.05, 1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="og-orb orb-one"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        className="og-3d-orb orb-purple"
+        animate={{ y: [0, 14, 0], scale: [1, 1.08, 1] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
       />
-      <motion.div
-        className="og-orb orb-two"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-      />
-      <motion.div
-        className="og-orb orb-three"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      />
-      <div className="og-ribbon ribbon-one" />
-      <div className="og-ribbon ribbon-two" />
 
+      {/* 1. Digital Health Profile (Left Floating Card) */}
       <motion.div
-        className="og-sculpture"
-        initial={{ opacity: 0, scale: 0.85, y: 30 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="og-card-glass og-card-left-float"
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: [0, -8, 0] }}
+        transition={{
+          opacity: { duration: 0.8, delay: 0.3 },
+          y: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
+        }}
       >
-        <div className="og-sculpture-inner">
-          <div className="og-sculpture-core">
-            <HeartPulse size={86} strokeWidth={1.2} />
-          </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="og-floating-card og-card-left"
-        initial={{ opacity: 0, x: -40, y: 20 }}
-        animate={{ opacity: 1, x: 0, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <div className="og-mini-icon mint">
+        <div className="og-card-icon-badge mint">
           <ShieldCheck size={20} />
         </div>
-        <div>
-          <span className="og-card-overline">DIGITAL HEALTH PROFILE</span>
+        <div className="og-card-text-group">
+          <span className="og-card-kicker">DIGITAL HEALTH PROFILE</span>
           <strong>Your Records, Together.</strong>
           <small>Accessible when you need them.</small>
         </div>
-        <span className="og-tiny-check">
+        <span className="og-check-pill">
           <Check size={13} />
         </span>
       </motion.div>
 
+      {/* 2. Patients & Doctors Connected (Center Hero Glass Card) */}
       <motion.div
-        className="og-floating-card og-card-center"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
+        className="og-card-glass og-card-center-hero"
+        initial={{ opacity: 0, y: 35 }}
+        animate={{ opacity: 1, y: [0, -10, 0] }}
+        transition={{
+          opacity: { duration: 0.8, delay: 0.5 },
+          y: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
+        }}
       >
-        <div className="og-card-center-heading">
-          <span className="og-mini-icon pink">
-            <Stethoscope size={19} />
+        <div className="og-card-header-styled">
+          <span className="og-card-icon-badge pink">
+            <Stethoscope size={18} />
           </span>
           <div>
-            <span className="og-card-overline">A BETTER CARE JOURNEY</span>
-            <strong>Patients &amp; Doctors, Connected.</strong>
+            <span className="og-card-kicker">A BETTER CARE JOURNEY</span>
+            <h3>Patients &amp; Doctors, Connected.</h3>
           </div>
         </div>
-        <div className="og-care-line">
-          <span>
-            <UsersRound size={16} /> Patients
+
+        <div className="og-pills-flex">
+          <span className="og-pill-tag light">
+            <User size={13} /> Patients
           </span>
-          <span className="og-dot-track">
-            <i />
-            <i />
-            <i />
+          <span className="og-pill-tag light">
+            <Stethoscope size={13} /> Doctors
           </span>
-          <span>
-            <Building2 size={16} /> Hospitals
+          <span className="og-pill-tag light">
+            <Building2 size={13} /> Hospitals
           </span>
         </div>
-        <div className="og-care-chips">
+
+        <div className="og-subpills-row">
           <span>Consultations</span>
           <span>Diagnostics</span>
           <span>Follow-ups</span>
         </div>
       </motion.div>
 
-      {/* ── CONNECTED CARE — ECG lines ── */}
+      {/* 3. Connected Care ECG (Right Floating Glass Card) */}
       <motion.div
-        className="og-floating-card og-card-right"
-        initial={{ opacity: 0, x: 40, y: 20 }}
-        animate={{ opacity: 1, x: 0, y: 0 }}
-        transition={{ duration: 0.9, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+        className="og-card-glass og-card-right-float"
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: [0, -7, 0] }}
+        transition={{
+          opacity: { duration: 0.8, delay: 0.7 },
+          y: { duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 1 },
+        }}
       >
-        <div className="og-chart-header">
-          <span className="og-mini-icon blue">
+        <div className="og-card-header-styled">
+          <span className="og-card-icon-badge blue">
             <Activity size={18} />
           </span>
           <div>
@@ -291,47 +240,26 @@ export function HeroVisual() {
           </div>
         </div>
 
-        <svg
-          viewBox="0 0 265 95"
-          fill="none"
-          className="og-chart"
-          aria-hidden="true"
-        >
-          {/* Pink ECG */}
+        <svg viewBox="0 0 200 55" fill="none" className="og-ecg-svg">
           <motion.path
             d={ecgPink}
             stroke="#D98EB8"
-            strokeWidth="2.5"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2, delay: 1, ease: 'easeInOut' }}
+          />
+          <motion.path
+            d={ecgBlue}
+            stroke="#7A9FB5"
+            strokeWidth="2.2"
             strokeLinecap="round"
             strokeLinejoin="round"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
             transition={{ duration: 2, delay: 1.2, ease: 'easeInOut' }}
-          />
-
-          {/* Blue ECG */}
-          <motion.path
-            d={ecgBlue}
-            stroke="#7A9FB5"
-            strokeWidth="2.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 1.4, ease: 'easeInOut' }}
-          />
-
-          {/* Pulse dot on a pink R-peak */}
-          <motion.circle
-            cx="170"
-            cy="18"
-            r="5"
-            fill="#D98EB8"
-            stroke="#FFF"
-            strokeWidth="3"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.35, delay: 2.7 }}
           />
         </svg>
       </motion.div>

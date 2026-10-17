@@ -224,4 +224,383 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   color: #6F7181;
   border-top: 1px solid #E9E5EE;
 }
+/* ==========================================================
+   HERO SECTION V2 — CLEAN FULL-WIDTH CARDS LAYOUT
+   ========================================================== */
 
+.og-hero-v2 {
+  position: relative;
+  min-height: 820px;
+  overflow: hidden;
+  padding: 40px 0 50px;
+  background: #f7f3fb;
+}
+
+.og-hero-bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.og-hero-bg-image {
+  object-fit: cover;
+  object-position: center right;
+  width: 100%;
+  height: 100%;
+}
+
+.og-hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(247, 243, 251, 0.98) 0%,
+    rgba(247, 243, 251, 0.8) 45%,
+    rgba(247, 243, 251, 0.1) 100%
+  );
+}
+
+.og-hero-inner-v2 {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 720px;
+}
+
+.og-hero-grid-v2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding-top: 20px;
+}
+
+/* Left Content Column */
+.og-hero-content-left {
+  max-width: 580px;
+  z-index: 5;
+}
+
+.og-hero-badge-v2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 24px rgba(110, 95, 140, 0.08);
+  backdrop-filter: blur(16px);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #534c6e;
+}
+
+.og-badge-check {
+  color: #0ea5e9;
+  display: flex;
+  align-items: center;
+}
+
+.og-hero-title-v2 {
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-weight: 850;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin: 20px 0;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(135deg, #322b4d 0%, #5d4a75 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-violet {
+  background: linear-gradient(135deg, #5d4a75 0%, #96678f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.og-hero-desc-v2 {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #55576a;
+  margin-bottom: 28px;
+}
+
+.og-hero-actions-v2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.og-pill-dark {
+  background: #374151;
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(55, 65, 81, 0.22);
+  border: 1px solid #374151;
+}
+
+.og-pill-dark:hover {
+  background: #1f2937;
+}
+
+.og-pill-glass {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  color: #374151;
+  box-shadow: 0 10px 25px rgba(120, 110, 140, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.og-pill-glass:hover {
+  background: #ffffff;
+}
+
+.og-hero-visual-space {
+  min-height: 380px;
+}
+
+/* ── FULL WIDTH FLOATING GLASS CARDS CONTAINER ── */
+.og-hero-visual-container {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  margin-top: 40px;
+}
+
+/* ── 3D Decorative Orbs ── */
+.og-3d-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.orb-teal {
+  width: 55px;
+  height: 55px;
+  bottom: 80px;
+  left: 28%;
+  background: radial-gradient(circle at 30% 30%, #a7f3d0, #38bdf8 60%, #0284c7);
+  box-shadow: 0 15px 35px rgba(56, 189, 248, 0.35), inset -5px -5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.orb-purple {
+  width: 42px;
+  height: 42px;
+  bottom: 30px;
+  right: 22%;
+  background: radial-gradient(circle at 30% 30%, #f472b6, #c084fc 60%, #7e22ce);
+  box-shadow: 0 12px 30px rgba(192, 132, 252, 0.35), inset -4px -4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Glass Card Base Styling ── */
+.og-card-glass {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 45px rgba(90, 75, 120, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 22px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.og-card-glass:hover {
+  box-shadow: 0 28px 60px rgba(90, 75, 120, 0.18);
+}
+
+.og-card-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.og-card-icon-badge.mint { background: #ecfdf5; color: #10b981; }
+.og-card-icon-badge.pink { background: #fdf2f8; color: #ec4899; }
+.og-card-icon-badge.blue { background: #eff6ff; color: #3b82f6; }
+
+.og-card-kicker {
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  color: #8b89a0;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* Card 1: Left Float (Digital Health Profile) */
+.og-card-left-float {
+  left: 600px;
+  bottom: 100px;
+  width: 310px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 6;
+}
+
+.og-card-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.og-card-text-group strong {
+  font-size: 13px;
+  color: #1f2937;
+  letter-spacing: -0.01em;
+}
+
+.og-card-text-group small {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.og-check-pill {
+  margin-left: auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #a7f3d0;
+  color: #047857;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+/* Card 2: Center Hero Float (Patients & Doctors Connected) */
+.og-card-center-hero {
+  left: 60%;
+  transform: translateX(-50%);
+  bottom: 550px;
+  width: 410px;
+  padding: 20px 22px;
+  z-index: 8;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.94),
+    rgba(245, 235, 252, 0.88)
+  );
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.og-card-header-styled {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.og-card-header-styled h3 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 2px 0 0;
+  letter-spacing: -0.02em;
+}
+
+.og-card-header-styled strong {
+  font-size: 13px;
+  color: #1f2937;
+  display: block;
+}
+
+.og-card-header-styled small {
+  font-size: 10px;
+  color: #6b7280;
+  display: block;
+}
+
+.og-pills-flex {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.og-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 750;
+  color: #374151;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(100, 90, 130, 0.05);
+}
+
+.og-subpills-row {
+  display: flex;
+  gap: 6px;
+}
+
+.og-subpills-row span {
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  font-size: 10px;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+/* Card 3: Right Float (Connected Care ECG) */
+.og-card-right-float {
+  right: -90;
+  bottom: 150px;
+  width: 250px;
+  padding: 16px;
+  z-index: 7;
+}
+
+.og-ecg-svg {
+  width: 100%;
+  height: 45px;
+  margin-top: 6px;
+}
+
+/* ── Mobile / Responsive Stacking ── */
+@media (max-width: 1100px) {
+  .og-hero-visual-container {
+    height: auto;
+    display: flex;
+    flex-direction: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .og-card-glass {
+    position: relative;
+    inset: auto;
+    transform: none !important;
+    width: 100%;
+  }
+  .orb-teal, .orb-purple {
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .og-hero-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+  .og-hero-visual-space {
+    display: none;
+  }
+}

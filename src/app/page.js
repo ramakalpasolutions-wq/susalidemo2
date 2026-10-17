@@ -5,12 +5,12 @@ import Image from 'next/image';
 import {
   ArrowRight,
   ArrowUpRight,
-  HeartHandshake,
-  Network,
   ShieldCheck,
-  Activity,
   CheckCircle2,
   Sparkles,
+  HeartHandshake,
+  Network,
+  Activity,
 } from 'lucide-react';
 import { HeroVisual, InteractiveJourney } from '@/components/OmbreExperience';
 import DynamicIcon from '@/components/Icons';
@@ -21,7 +21,6 @@ import ScrollReveal, {
 } from '@/components/ScrollReveal';
 import CountUp from '@/components/CountUp';
 import MagneticButton from '@/components/MagneticButton';
-import TextReveal from '@/components/TextReveal';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
@@ -31,58 +30,86 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="og-hero">
-        <div className="og-hero-glow glow-a" />
-        <div className="og-hero-glow glow-b" />
-        <div className="og-hero-inner container">
-          <ScrollReveal delay={0.1}>
-            <span className="og-hero-badge">
-              <ShieldCheck size={16} /> {h.badge}
-            </span>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <h1>
-              <TextReveal text={h.heroTitle1} delay={0.2} />
-              <br />
-              <span>
-                <TextReveal text={h.heroTitle2} delay={0.45} />
-              </span>
-            </h1>
-          </ScrollReveal>
-          <ScrollReveal delay={0.5}>
-            <p>{h.heroDesc}</p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.65}>
-            <div className="og-hero-actions">
-              <MagneticButton>
-                <Link
-                  href="/services"
-                  className="og-pill-button og-pill-primary"
-                >
-                  {h.btnPrimary} <ArrowUpRight size={19} />
-                </Link>
-              </MagneticButton>
-              <MagneticButton>
-                <Link
-                  href="#about-preview"
-                  className="og-pill-button og-pill-soft"
-                >
-                  {h.btnSecondary} <ArrowRight size={18} />
-                </Link>
-              </MagneticButton>
+           {/* ── HERO ── */}
+      <section className="og-hero-v2">
+        {/* Background Graphic Image */}
+        <div className="og-hero-bg-container">
+          <Image
+            src="/hero-bg.jpg"
+            alt="SUSALI Healthcare Background"
+            fill
+            priority
+            quality={90}
+            className="og-hero-bg-image"
+          />
+          <div className="og-hero-bg-overlay" />
+        </div>
+
+        <div className="container og-hero-inner-v2">
+          <div className="og-hero-grid-v2">
+            {/* LEFT COLUMN: Main Text & CTAs */}
+            <div className="og-hero-content-left">
+              <ScrollReveal delay={0.1}>
+                <div className="og-hero-badge-v2">
+                  <span className="og-badge-check">
+                    <CheckCircle2 size={15} />
+                  </span>
+                  CONNECTING PEOPLE WITH CARE
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.2}>
+                <h1 className="og-hero-title-v2">
+                  <span className="gradient-text-purple">Better Connections.</span>
+                  <br />
+                  <span className="gradient-text-violet">
+                    Better Healthcare Journeys.
+                  </span>
+                </h1>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.35}>
+                <p className="og-hero-desc-v2">
+                  Healthcare is not just about accessing medical services — it is
+                  about guiding people through every stage of their care. SUSALI
+                  connects patients with healthcare providers through structured
+                  referrals, appointment coordination, patient guidance, and
+                  organized medical information. By bringing these essential services
+                  together, we strive to make healthcare journeys more accessible,
+                  coordinated, and seamless — helping patients navigate their next
+                  steps with greater clarity and confidence.
+                </p>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.5}>
+                <div className="og-hero-actions-v2">
+                  <MagneticButton>
+                    <Link
+                      href="/services"
+                      className="og-pill-button og-pill-dark"
+                    >
+                      Explore Our Services <ArrowUpRight size={18} />
+                    </Link>
+                  </MagneticButton>
+
+                  <MagneticButton>
+                    <Link
+                      href="#about-preview"
+                      className="og-pill-button og-pill-glass"
+                    >
+                      Discover How SUSALI Works <ArrowRight size={18} />
+                    </Link>
+                  </MagneticButton>
+                </div>
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
+
+            {/* RIGHT COLUMN: Spacing area for doctor image in background */}
+            <div className="og-hero-visual-space" />
+          </div>
+
+          {/* FULL WIDTH FLOATING GLASS CARDS (Spans across left, middle, right) */}
           <HeroVisual />
-          <ScrollReveal delay={0.9}>
-            <div className="og-hero-footnote">
-              <span>
-                <span className="og-status-dot" /> {h.heroSub}
-              </span>
-              <a href="#about-preview">
-                EXPLORE <span>↓</span>
-              </a>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -103,10 +130,9 @@ export default function Home() {
                 boxShadow: '0 20px 50px rgba(6, 62, 52, 0.08)',
               }}
             >
-              {/* Main Image Replacement */}
               <Image
                 src="/about-intro.jpg"
-                alt="SUSALI Healthcare Services - Care, Clarity, Connection"
+                alt="SUSALI Healthcare Services"
                 width={600}
                 height={520}
                 style={{
@@ -118,8 +144,6 @@ export default function Home() {
                 }}
                 priority
               />
-
-              {/* Soft overlay gradient for consistent glassmorphism tone */}
               <div
                 style={{
                   position: 'absolute',
@@ -130,8 +154,6 @@ export default function Home() {
                   pointerEvents: 'none',
                 }}
               />
-
-              {/* Top Floating Badge */}
               <div className="og-intro-floating">
                 <span className="og-mini-icon mint">
                   <CheckCircle2 size={19} />
@@ -141,8 +163,6 @@ export default function Home() {
                   <small>Care. Clarity. Connection.</small>
                 </div>
               </div>
-
-              {/* Bottom Floating Pill */}
               <span className="og-intro-bottom-pill">
                 <Sparkles size={15} /> Care. Clarity. Connection.
               </span>
