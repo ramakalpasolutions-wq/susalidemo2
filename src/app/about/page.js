@@ -12,7 +12,13 @@ export default function About() {
   const icons = [HeartHandshake, Eye, LinkIcon, ShieldCheck, RefreshCcw, Lightbulb];
 
   return <>
-    <PageHero tag={a.heroTag} title={a.heroTitle} accent={a.heroAccent} description={a.heroDesc} />
+    <PageHero
+  tag={a.heroTag}
+  title={a.heroTitle}
+  accent={a.heroAccent}
+  description={a.heroDesc}
+  image="/about-intro1.jpg"
+/>
 
     <section className="section-space">
       <div className="container about-main">

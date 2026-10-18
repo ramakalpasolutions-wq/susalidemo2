@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, Check, ChevronRight, Heart, Stethoscope } from 'lucide-react';
 import { motion } from 'framer-motion';
 import DynamicIcon from './Icons';
@@ -19,11 +20,40 @@ export function Eyebrow({ children, light = false }) {
   );
 }
 
-export function PageHero({ tag, title, accent, description, side = 'pulse' }) {
+export function PageHero({ tag, title, accent, description, side = 'pulse', image }) {
   return (
-    <section className="page-hero">
-      <div className="pagehero-glow" />
-      <div className="container pagehero-inner">
+    <section className="page-hero" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Full background image */}
+      {image && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            zIndex: 0,
+          }}
+        >
+          <Image
+            src={image}
+            alt=""
+            fill
+            priority
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            sizes="100vw"
+          />
+          {/* Soft overlay so text stays readable — no color redesign, just fade */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background:
+                'linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.45) 100%)',
+            }}
+          />
+        </div>
+      )}
+
+      <div className="pagehero-glow" style={{ position: 'relative', zIndex: 1 }} />
+      <div className="container pagehero-inner" style={{ position: 'relative', zIndex: 1 }}>
         <div>
           <Eyebrow light>{tag}</Eyebrow>
           <h1>
@@ -43,15 +73,18 @@ export function PageHero({ tag, title, accent, description, side = 'pulse' }) {
           </h1>
           <ScrollReveal delay={0.4}><p>{description}</p></ScrollReveal>
         </div>
-        
-        {/* FIX: Moved pagehero-decoration class directly onto ScrollReveal */}
-        <ScrollReveal delay={0.3} direction="right" className="pagehero-decoration">
-          <NetworkVisual compact={true} />
-        </ScrollReveal>
+
+        {/* Keep existing right visual only when NO image */}
+        {!image && (
+          <ScrollReveal delay={0.3} direction="right" className="pagehero-decoration">
+            <NetworkVisual compact={true} />
+          </ScrollReveal>
+        )}
       </div>
     </section>
   );
 }
+
 
 export function NetworkVisual({ compact = false }) {
   return (
