@@ -1,12 +1,28 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { ArrowUpRight, CheckCircle2, X } from 'lucide-react';
+import {
+  ArrowUpRight,
+  CheckCircle2,
+  X,
+} from 'lucide-react';
+
 import DynamicIcon from '@/components/Icons';
-import { PageHero, SectionTitle, Journey, CTA } from '@/components/Shared';
-import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/ScrollReveal';
-import TiltCard from '@/components/TiltCard';
+
+import {
+  PageHero,
+  SectionTitle,
+  Journey,
+  CTA,
+} from '@/components/Shared';
+
+import ScrollReveal, {
+  StaggerContainer,
+  StaggerItem,
+} from '@/components/ScrollReveal';
+
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Services() {
@@ -17,11 +33,23 @@ export default function Services() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') setActiveService(null);
+      if (e.key === 'Escape') {
+        setActiveService(null);
+      }
     };
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
+
+  // Keep correct service selected when language changes.
+  const selectedService =
+    activeService === null
+      ? null
+      : s.list[activeService];
 
   return (
     <>
@@ -41,56 +69,86 @@ export default function Services() {
             desc={s.philosophyP}
           />
 
-          <StaggerContainer className="svc-grid" stagger={0.08}>
-  {s.list.map((item, i) => (
-    <StaggerItem key={item.id} className="svc-item">
-      <div
-        onClick={() => setActiveService(item)}
-        className={`svc-card svc-${i}`}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && setActiveService(item)}
-      >
-        <div className="svc-card-top">
-          <span className="svc-icon">
-            <DynamicIcon name={item.icon || 'HeartPulse'} size={24} />
-          </span>
-          {/* <span className="svc-num">{item.id} / 06</span> */}
-        </div>
+          <StaggerContainer
+            className="svc-grid"
+            stagger={0.08}
+          >
+            {s.list.map((item, i) => (
+              <StaggerItem
+                key={item.id}
+                className="svc-item"
+              >
+                <div
+                  onClick={() => setActiveService(i)}
+                  className={`svc-card svc-${i}`}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (
+                      e.key === 'Enter' ||
+                      e.key === ' '
+                    ) {
+                      e.preventDefault();
+                      setActiveService(i);
+                    }
+                  }}
+                >
+                  <div className="svc-card-top">
+                    <span className="svc-icon">
+                      <DynamicIcon
+                        name={
+                          item.icon ||
+                          'HeartPulse'
+                        }
+                        size={24}
+                      />
+                    </span>
+                  </div>
 
-        {item.image && (
-          <div className="svc-image">
-            <Image
-              src={item.image}
-              alt={item.title}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
-        )}
+                  {item.image && (
+                    <div className="svc-image">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                  )}
 
-        <div className="svc-body">
-          <h3>{item.title}</h3>
-          <p className="svc-desc">{item.desc}</p>
+                  <div className="svc-body">
+                    <h3>{item.title}</h3>
 
-          <div className="svc-foot">
-            <span className="svc-foot-label">Click for description</span>
-            <span className="svc-arrow">
-              <ArrowUpRight size={18} />
-            </span>
-          </div>
-        </div>
-      </div>
-    </StaggerItem>
-  ))}
-</StaggerContainer>
+                    <p className="svc-desc">
+                      {item.desc}
+                    </p>
+
+                    <div className="svc-foot">
+                      <span className="svc-foot-label">
+                        {t.ui.clickDescription}
+                      </span>
+
+                      <span className="svc-arrow">
+                        <ArrowUpRight size={18} />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
       <ScrollReveal>
         <section className="process-light section-space">
           <div className="container">
-            <SectionTitle eyebrow={s.journeyKicker} title={s.journeyTitle1} accent={s.journeyTitle2} />
+            <SectionTitle
+              eyebrow={s.journeyKicker}
+              title={s.journeyTitle1}
+              accent={s.journeyTitle2}
+            />
+
             <Journey />
           </div>
         </section>
@@ -98,15 +156,16 @@ export default function Services() {
 
       <CTA small />
 
-      {/* POP-UP OVERLAY MODAL */}
-      {activeService && (
+      {/* Service detail popup */}
+      {selectedService && (
         <div
           className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-6"
           style={{
             backgroundColor: 'rgba(20, 24, 38, 0.6)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
-            animation: 'ogOverlayFadeIn 0.25s ease-out forwards',
+            animation:
+              'ogOverlayFadeIn 0.25s ease-out forwards',
           }}
           onClick={() => setActiveService(null)}
         >
@@ -117,47 +176,63 @@ export default function Services() {
               backdropFilter: 'blur(28px)',
               WebkitBackdropFilter: 'blur(28px)',
               borderRadius: '32px',
-              border: '1px solid rgba(255, 255, 255, 0.95)',
-              boxShadow: '0 30px 60px rgba(30, 25, 45, 0.35)',
+              border: '1px solid rgba(255,255,255,0.95)',
+              boxShadow:
+                '0 30px 60px rgba(30,25,45,0.35)',
               maxHeight: '90vh',
-              animation: 'ogModalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              animation:
+                'ogModalPop 0.3s cubic-bezier(0.16,1,0.3,1) forwards',
             }}
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={selectedService.title}
           >
             <button
               onClick={() => setActiveService(null)}
               className="absolute top-5 right-5 z-10 p-2 rounded-full transition-colors hover:bg-black/10 bg-white/80 backdrop-blur-md"
-              style={{ color: '#374151', border: '1px solid rgba(0,0,0,0.1)', cursor: 'pointer' }}
+              style={{
+                color: '#374151',
+                border: '1px solid rgba(0,0,0,0.1)',
+                cursor: 'pointer',
+              }}
               aria-label="Close"
             >
               <X size={20} />
             </button>
 
-           {activeService.image && (
-  <div
-    style={{
-      position: 'relative',
-      width: '100%',
-      aspectRatio: '16 / 10',
-      borderRadius: '20px',
-      overflow: 'hidden',
-      marginBottom: '24px',
-      background: '#F3EEF8',
-      border: '1px solid rgba(0, 0, 0, 0.06)',
-    }}
-  >
-    <Image
-      src={activeService.image}
-      alt={activeService.title}
-      fill
-      sizes="(max-width: 768px) 100vw, 670px"
-      style={{ objectFit: 'contain' }}
-      priority
-    />
-  </div>
-)}
+            {selectedService.image && (
+              <div
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  aspectRatio: '16 / 10',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  marginBottom: '24px',
+                  background: '#F3EEF8',
+                  border: '1px solid rgba(0,0,0,0.06)',
+                }}
+              >
+                <Image
+                  src={selectedService.image}
+                  alt={selectedService.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 670px"
+                  style={{ objectFit: 'contain' }}
+                  priority
+                />
+              </div>
+            )}
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem',
+                marginBottom: '1rem',
+              }}
+            >
               <span
                 style={{
                   display: 'grid',
@@ -165,49 +240,59 @@ export default function Services() {
                   width: '48px',
                   height: '48px',
                   borderRadius: '16px',
-                  background: 'linear-gradient(140deg, #F4E8F7, #E8E5FB)',
+                  background:
+                    'linear-gradient(140deg,#F4E8F7,#E8E5FB)',
                   color: '#8D79A2',
-                  border: '1px solid #ffffff',
+                  border: '1px solid #fff',
                 }}
               >
-                <DynamicIcon name={activeService.icon || 'HeartPulse'} size={26} />
+                <DynamicIcon
+                  name={
+                    selectedService.icon ||
+                    'HeartPulse'
+                  }
+                  size={26}
+                />
               </span>
+
               <span
                 style={{
                   fontSize: '0.85rem',
-                  fontWeight: '800',
+                  fontWeight: 800,
                   color: '#917E9B',
-                  letterSpacing: '0.12em',
+                  letterSpacing: 'normal',
                 }}
               >
-                SERVICE {activeService.id} / 06
+                {t.ui.service}{' '}
+                {selectedService.id} / 06
               </span>
             </div>
 
             <h2
               style={{
                 fontSize: '1.85rem',
-                fontWeight: '850',
-                lineHeight: '1.25',
+                fontWeight: 850,
+                lineHeight: 1.5,
                 marginBottom: '1rem',
                 color: '#2B303C',
+                letterSpacing: 'normal',
               }}
             >
-              {activeService.title}
+              {selectedService.title}
             </h2>
 
             <p
               style={{
                 fontSize: '1rem',
-                lineHeight: '1.75',
+                lineHeight: 1.85,
                 color: '#546481',
                 marginBottom: '1.75rem',
               }}
             >
-              {activeService.desc}
+              {selectedService.desc}
             </p>
 
-            {activeService.detail && (
+            {selectedService.detail && (
               <div
                 style={{
                   display: 'inline-flex',
@@ -218,12 +303,18 @@ export default function Services() {
                   borderRadius: '16px',
                   border: '1px solid #E9E5EE',
                   color: '#34394A',
-                  fontWeight: '600',
+                  fontWeight: 600,
                   fontSize: '0.9rem',
                 }}
               >
-                <CheckCircle2 size={20} style={{ color: '#8F73A0', flexShrink: 0 }} />
-                <span>{activeService.detail}</span>
+                <CheckCircle2
+                  size={20}
+                  style={{
+                    color: '#8F73A0',
+                    flexShrink: 0,
+                  }}
+                />
+                <span>{selectedService.detail}</span>
               </div>
             )}
           </div>
@@ -233,15 +324,22 @@ export default function Services() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
-          @keyframes ogOverlayFadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-          @keyframes ogModalPop {
-            from { opacity: 0; transform: scale(0.92) translateY(12px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-          }
-        `,
+            @keyframes ogOverlayFadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+
+            @keyframes ogModalPop {
+              from {
+                opacity: 0;
+                transform: scale(0.92) translateY(12px);
+              }
+              to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+              }
+            }
+          `,
         }}
       />
     </>

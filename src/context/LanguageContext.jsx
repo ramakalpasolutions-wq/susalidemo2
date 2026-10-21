@@ -1,35 +1,54 @@
+
 'use client';
+
 import { createContext, useContext, useState, useEffect } from 'react';
 import { translations } from '@/data/translations';
 
-const LanguageContext = createContext();
+const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState('en');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem('susali_lang');
-    if (saved && (saved === 'en' || saved === 'te')) {
+    const saved = window.localStorage.getItem('susali_lang');
+
+    if (saved === 'en' || saved === 'te') {
       setLang(saved);
     }
+
+    setMounted(true);
   }, []);
 
-  const changeLang = (newLang) => {
-    setLang(newLang);
-    localStorage.setItem('susali_lang', newLang);
-  };
-
-  // Guarantee that SSR and initial client hydration pass match 100% identically
   const activeLang = mounted ? lang : 'en';
+
+  useEffect(() => {
+    document.documentElement.lang = activeLang;
+  }, [activeLang]);
+
+  function changeLang(nextLang) {
+    if (nextLang !== 'en' && nextLang !== 'te') return;
+
+    setLang(nextLang);
+    window.localStorage.setItem('susali_lang', nextLang);
+  }
+
   const t = translations[activeLang] || translations.en;
 
   return (
-    <LanguageContext.Provider value={{ lang: activeLang, setLang: changeLang, t, mounted }}>
+    <LanguageContext.Provider
+      value={{
+        lang: activeLang,
+        setLang: changeLang,
+        t,
+        mounted,
+      }}
+    >
       {children}
     </LanguageContext.Provider>
   );
 }
 
-export const useLanguage = () => useContext(LanguageContext);
+export function useLanguage() {
+  return useContext(LanguageContext);
+}

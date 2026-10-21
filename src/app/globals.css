@@ -1013,3 +1013,111 @@ Remove numbered boxes and connector lines
 .process-light .journey-step h3 {
   margin-top: 0;
 }
+
+/* ================================================
+   SUSALI — TELUGU RESPONSIVE TYPOGRAPHY
+   ================================================ */
+
+html[lang="te"] body {
+  font-family:
+    "Noto Sans Telugu",
+    "Nirmala UI",
+    "Gautami",
+    sans-serif;
+  letter-spacing: normal;
+}
+
+html[lang="te"] h1,
+html[lang="te"] h2,
+html[lang="te"] h3,
+html[lang="te"] h4 {
+  letter-spacing: normal !important;
+  line-height: 1.5 !important;
+  overflow: visible;
+  text-wrap: pretty;
+}
+
+/* Home hero */
+html[lang="te"] .og-hero-title-v2 {
+  font-size: clamp(32px, 3.7vw, 55px) !important;
+  line-height: 1.55 !important;
+  letter-spacing: normal !important;
+  margin-bottom: 28px;
+}
+
+/* About, Services, Network, FAQs, Contact heroes */
+html[lang="te"] .pagehero-inner h1 {
+  font-size: clamp(34px, 4vw, 59px) !important;
+  line-height: 1.55 !important;
+  letter-spacing: normal !important;
+}
+
+/* Interior headings */
+html[lang="te"] .section-head h2,
+html[lang="te"] .og-section-heading h2,
+html[lang="te"] .about-main h2,
+html[lang="te"] .network-intro h2,
+html[lang="te"] .contact-aside h2,
+html[lang="te"] .og-intro-copy h2,
+html[lang="te"] .og-final-card h2,
+html[lang="te"] .cta-copy h2,
+html[lang="te"] .network-highlight h2 {
+  font-size: clamp(30px, 3.4vw, 49px) !important;
+  line-height: 1.55 !important;
+  letter-spacing: normal !important;
+}
+
+/* Gradient text must not clip Telugu letters */
+html[lang="te"] .gradient-text,
+html[lang="te"] .blue-text,
+html[lang="te"] .gradient-text-purple,
+html[lang="te"] .gradient-text-violet {
+  line-height: inherit !important;
+  letter-spacing: normal !important;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Paragraph readability */
+html[lang="te"] p,
+html[lang="te"] .svc-desc,
+html[lang="te"] .faq-answer,
+html[lang="te"] .network-group-card p {
+  line-height: 1.85 !important;
+  letter-spacing: normal !important;
+}
+
+/* Legacy reveal animation protection */
+html[lang="te"] .overflow-hidden.inline-block {
+  overflow: visible !important;
+  padding-block: 0.15em !important;
+}
+
+/* Floating hero cards */
+html[lang="te"] .og-card-center-hero,
+html[lang="te"] .og-card-left-float,
+html[lang="te"] .og-card-right-float {
+  height: auto;
+  overflow: visible;
+}
+
+html[lang="te"] .og-pills-flex,
+html[lang="te"] .og-subpills-row {
+  flex-wrap: wrap;
+}
+
+html[lang="te"] .og-card-header-styled h3,
+html[lang="te"] .og-card-text-group strong,
+html[lang="te"] .og-card-header-styled strong {
+  letter-spacing: normal !important;
+  line-height: 1.5 !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  html[lang="te"] .og-hero-title-v2,
+  html[lang="te"] .pagehero-inner h1 {
+    font-size: clamp(29px, 8vw, 39px) !important;
+    line-height: 1.6 !important;
+  }
+}
