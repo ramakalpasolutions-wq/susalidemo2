@@ -41,122 +41,49 @@ export default function Services() {
             desc={s.philosophyP}
           />
 
-          <StaggerContainer className="service-detail-grid" stagger={0.08}>
-            {s.list.map((item) => (
-              <StaggerItem key={item.id}>
-                <div
-                  onClick={() => setActiveService(item)}
-                  style={{ cursor: 'pointer', height: '100%' }}
-                  className="group"
-                >
-                  <TiltCard
-                    className="service-detail"
-                    style={{
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      padding: '24px',
-                    }}
-                  >
-                    <div>
-                      <div
-                        className="detail-top"
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          marginBottom: '16px',
-                        }}
-                      >
-                        <span
-                          className="service-icon"
-                          style={{
-                            width: '48px',
-                            height: '48px',
-                            borderRadius: '14px',
-                            display: 'grid',
-                            placeItems: 'center',
-                          }}
-                        >
-                          <DynamicIcon name={item.icon || 'HeartPulse'} size={24} />
-                        </span>
-                        <span
-                          className="detail-no"
-                          style={{ fontSize: '12px', fontWeight: '800', letterSpacing: '0.1em' }}
-                        >
-                          {item.id} / 06
-                        </span>
-                      </div>
+          <StaggerContainer className="svc-grid" stagger={0.08}>
+  {s.list.map((item, i) => (
+    <StaggerItem key={item.id} className="svc-item">
+      <div
+        onClick={() => setActiveService(item)}
+        className={`svc-card svc-${i}`}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === 'Enter' && setActiveService(item)}
+      >
+        <div className="svc-card-top">
+          <span className="svc-icon">
+            <DynamicIcon name={item.icon || 'HeartPulse'} size={24} />
+          </span>
+          {/* <span className="svc-num">{item.id} / 06</span> */}
+        </div>
 
-                      {/* Service Image */}
-                      {item.image && (
-                        <div
-                          style={{
-                            position: 'relative',
-                            width: '100%',
-                            height: '180px',
-                            borderRadius: '16px',
-                            overflow: 'hidden',
-                            marginBottom: '20px',
-                          }}
-                        >
-                          <Image
-                            src={item.image}
-                            alt={item.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            style={{ objectFit: 'cover' }}
-                            className="transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </div>
-                      )}
+        {item.image && (
+          <div className="svc-image">
+            <Image
+              src={item.image}
+              alt={item.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
+        )}
 
-                      <h3
-                        style={{
-                          fontSize: '1.25rem',
-                          fontWeight: '800',
-                          margin: '0',
-                          color: 'var(--og-ink)',
-                          lineHeight: '1.3',
-                        }}
-                      >
-                        {item.title}
-                      </h3>
-                    </div>
+        <div className="svc-body">
+          <h3>{item.title}</h3>
+          <p className="svc-desc">{item.desc}</p>
 
-                    <div
-                      style={{
-                        marginTop: '24px',
-                        paddingTop: '16px',
-                        borderTop: '1px solid var(--line)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: '12px',
-                          fontWeight: '750',
-                          color: '#8F73A0',
-                          letterSpacing: '0.04em',
-                        }}
-                      >
-                        Click for description
-                      </span>
-                      <span
-                        style={{ color: '#8F73A0', display: 'flex', alignItems: 'center' }}
-                        className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                      >
-                        <ArrowUpRight size={20} />
-                      </span>
-                    </div>
-                  </TiltCard>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <div className="svc-foot">
+            <span className="svc-foot-label">Click for description</span>
+            <span className="svc-arrow">
+              <ArrowUpRight size={18} />
+            </span>
+          </div>
+        </div>
+      </div>
+    </StaggerItem>
+  ))}
+</StaggerContainer>
         </div>
       </section>
 

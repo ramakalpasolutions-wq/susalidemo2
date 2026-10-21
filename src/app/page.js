@@ -180,82 +180,75 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES SECTION ── */}
-      <section className="og-services section-space">
-        <div className="container">
-          <ScrollReveal>
-            <div className="og-section-heading">
-              <div>
-                <span className="og-kicker">{h.servicesKicker}</span>
-                <h2>
-                  {h.servicesTitle1} <em>{h.servicesTitle2}</em>
-                </h2>
-              </div>
-              <p>{h.servicesDesc}</p>
-            </div>
-          </ScrollReveal>
-
-          <StaggerContainer className="og-services-grid" stagger={0.08}>
-            {t.services.list.map((service, i) => (
-              <StaggerItem key={service.id}>
-                <div
-                  onClick={() => setActiveService(service)}
-                  className={'og-service-card og-service-' + i}
-                  style={{
-                    cursor: 'pointer',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-                    <span className="og-service-icon">
-                      <DynamicIcon name={service.icon || 'HeartPulse'} size={27} />
-                    </span>
-                    <span className="og-service-number">{service.id} / 06</span>
-                  </div>
-
-                  {/* IMAGE */}
-                  {service.image && (
-                    <div
-                      style={{
-                        position: 'relative',
-                        width: '100%',
-                        height: 160,
-                        borderRadius: 16,
-                        overflow: 'hidden',
-                        marginBottom: 16,
-                      }}
-                    >
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        style={{ objectFit: 'cover' }}
-                      />
-                    </div>
-                  )}
-
-                  <h3 style={{ marginTop: 0, marginBottom: 'auto' }}>{service.title}</h3>
-
-                  <span className="og-service-arrow" style={{ marginTop: 20 }}>
-                    <ArrowUpRight size={21} />
-                  </span>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <ScrollReveal delay={0.2}>
-            <div className="og-section-bottom">
-              <span>One connected ecosystem.</span>
-              <Link href="/services" className="og-text-link">
-                {h.servicesBtn} <ArrowUpRight size={18} />
-              </Link>
-            </div>
-          </ScrollReveal>
+     {/* ── SERVICES SECTION ── */}
+<section className="og-services section-space">
+  <div className="container">
+    <ScrollReveal>
+      <div className="og-section-heading">
+        <div>
+          <span className="og-kicker">{h.servicesKicker}</span>
+          <h2>
+            {h.servicesTitle1} <em>{h.servicesTitle2}</em>
+          </h2>
         </div>
-      </section>
+        <p>{h.servicesDesc}</p>
+      </div>
+    </ScrollReveal>
+
+    <StaggerContainer className="svc-grid" stagger={0.08}>
+      {t.services.list.map((service, i) => (
+        <StaggerItem key={service.id} className="svc-item">
+          <div
+            onClick={() => setActiveService(service)}
+            className={`svc-card svc-${i}`}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && setActiveService(service)}
+          >
+            <div className="svc-card-top">
+              <span className="svc-icon">
+                <DynamicIcon name={service.icon || 'HeartPulse'} size={24} />
+              </span>
+              {/* <span className="svc-num">{service.id} / 06</span> */}
+            </div>
+
+            {service.image && (
+              <div className="svc-image">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            )}
+
+            <div className="svc-body">
+              <h3>{service.title}</h3>
+              <p className="svc-desc">{service.desc}</p>
+
+              <div className="svc-foot">
+                <span className="svc-foot-label">View details</span>
+                <span className="svc-arrow">
+                  <ArrowUpRight size={18} />
+                </span>
+              </div>
+            </div>
+          </div>
+        </StaggerItem>
+      ))}
+    </StaggerContainer>
+
+    <ScrollReveal delay={0.2}>
+      <div className="og-section-bottom">
+        <span>One connected ecosystem.</span>
+        <Link href="/services" className="og-text-link">
+          {h.servicesBtn} <ArrowUpRight size={18} />
+        </Link>
+      </div>
+    </ScrollReveal>
+  </div>
+</section>
 
       {/* ── JOURNEY ── */}
       <ScrollReveal>

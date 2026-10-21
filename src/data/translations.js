@@ -174,13 +174,15 @@ export const translations = {
       ecosystemKicker: 'OUR HEALTHCARE ECOSYSTEM',
       ecosystemTitle1: 'People and Institutions Working',
       ecosystemTitle2: 'Hand in Hand.',
-      groups: [
+           groups: [
         { icon: 'HeartPulse', title: 'Patients — At the Heart', desc: 'Manage referral submissions, view appointment details, and access uploaded medical documents through one continuing profile.' },
         { icon: 'Stethoscope', title: 'Doctors — Clinical Expertise', desc: 'Doctors assess needs, diagnose conditions, provide treatment, and guide continued care. SUSALI supports the coordination framework surrounding these interactions.' },
         { icon: 'Building2', title: 'Hospitals — Professional Care', desc: 'Participating hospitals provide medical consultations, tests, and treatment while authorized staff upload relevant treatment documents to SUSALI.' },
         { icon: 'GitPullRequestArrow', title: 'Referral Authorities — The Pathway', desc: 'Initial healthcare processes issue required referrals, connecting authorized referral information with the next stage of hospital care.' },
         { icon: 'UsersRound', title: 'Coordination Teams — Practical Steps', desc: 'Teams help organize administrative communication between referrals, hospitals, and arranged appointments.' },
         { icon: 'ScanLine', title: 'Diagnostic Services — Supporting Care', desc: 'Laboratory tests and scans inform clinical decisions. Available uploaded findings remain associated with the patient profile.' },
+        // NEW CAMP SECTION ADDED HERE
+        { icon: 'Tent', title: 'Medical Camps — Community Reach', desc: 'Organizing health camps to provide initial screening, medical awareness, and connecting communities to the SUSALI healthcare network.' }
       ],
       pathwaysKicker: 'DIFFERENT HEALTHCARE PATHWAYS',
       pathwaysTitle1: 'One Network.',
