@@ -11,8 +11,10 @@ export const translations = {
     },
     home: {
       badge: 'CONNECTING PEOPLE WITH CARE',
-      heroTitle1: 'Better Connections.',
-      heroTitle2: 'Better Healthcare Journeys.',
+   
+heroTitle1: 'Better Affiliations.',
+heroTitle2: 'Better Healthcare.',
+
       heroSub: 'Bridging the Gap Between Patients and Doctors.',
       heroDesc: 'Healthcare is not just about accessing medical services — it is about guiding people through every stage of their care. SUSALI connects patients with healthcare providers through structured referrals, appointment coordination, patient guidance, and organized medical information. By bringing these essential services together, we strive to make healthcare journeys more accessible, coordinated, and seamless — helping patients navigate their next steps with greater clarity and confidence.',
       btnPrimary: 'Explore Our Services',
@@ -138,7 +140,7 @@ export const translations = {
     services: {
       heroTag: 'WHAT SUSALI HELPS CONNECT',
       heroTitle: 'Connected Support Across Your',
-      heroAccent: 'Healthcare Journey.',
+      heroAccent: 'Healthcare Matter Want To Change.',
       heroDesc: 'From the first patient profile to hospital appointments, treatment documents, and future care, SUSALI brings important coordination and information-related services together.',
       philosophyKicker: 'OUR SERVICE PHILOSOPHY',
       philosophyTitle1: 'One Patient. Many',
@@ -276,8 +278,10 @@ export const translations = {
     },
     home: {
       badge: 'మనుషులను వైద్య సేవలతో అనుసంధానిస్తూ',
-      heroTitle1: 'మెరుగైన అనుసంధానం.',
-      heroTitle2: 'మెరుగైన ఆరోగ్య సంరక్షణ ప్రయాణం.',
+    
+heroTitle1: 'మెరుగైన భాగస్వామ్యాలు.',
+heroTitle2: 'మెరుగైన ఆరోగ్య సంరక్షణ.',
+
       heroSub: 'రోగులకు, వైద్యులకు మధ్య అనుసంధాన వారధి — SUSALI.',
       heroDesc: 'ఆరోగ్య సంరక్షణ అనేది కేవలం వైద్య సేవలను పొందడం మాత్రమే కాదు — ప్రతి దశలోనూ ప్రజలకు సరైన మార్గదర్శకత్వం అందించడం. క్రమబద్ధమైన రిఫరల్స్, అపాయింట్‌మెంట్ సమన్వయం, రోగులకు తగిన మార్గదర్శకత్వం మరియు సరిగ్గా అమర్చిన వైద్య సమాచారం ద్వారా SUSALI రోగులను వైద్య సేవలతో అనుసంధానిస్తుంది. ఈ ముఖ్యమైన సేవలన్నింటినీ ఒకే చోటికి తీసుకురావడం ద్వారా, ఆరోగ్య సంరక్షణ ప్రయాణాలను మరింత సులభంగా, సమన్వయంగా మరియు నిరంతరాయంగా మార్చడానికి మేము కృషి చేస్తున్నాము — రోగులు తమ తదుపరి అడుగులను మరింత స్పష్టతతో మరియు నమ్మకంతో ముందుకు వేయడానికి ఇది సహాయపడుతుంది.',
       btnPrimary: 'మా సేవలను తెలుసుకోండి',

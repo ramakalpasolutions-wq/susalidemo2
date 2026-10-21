@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -60,10 +61,12 @@ export default function Home() {
 
               <ScrollReveal delay={0.2}>
                 <h1 className="og-hero-title-v2">
-                  <span className="gradient-text-purple">Better Connections.</span>
+                  <span className="gradient-text-purple">
+                    {h.heroTitle1}
+                  </span>
                   <br />
                   <span className="gradient-text-violet">
-                    Better Healthcare Journeys.
+                    {h.heroTitle2}
                   </span>
                 </h1>
               </ScrollReveal>
