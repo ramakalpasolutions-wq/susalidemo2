@@ -679,12 +679,13 @@ h1,h2,h3,h4{letter-spacing:-.055em}
     padding: 24px 20px;
   }
 }
+
 /* ==========================================================
    TEXT CONTRAST & READABILITY FIXES (WCAG AAA Compliant)
    ========================================================== */
 
-/* Hero & Main Paragraph Text - Crisp Dark Slate */
-p, 
+/* General text - scoped safely so it doesn't break dark cards */
+body p, 
 .lead, 
 .og-lead, 
 .hero-copy > p, 
@@ -696,8 +697,17 @@ p,
 .service-card p,
 .value-card p,
 .faq-answer p {
-  color: #334155 !important; /* Rich Dark Slate for high contrast on light backgrounds */
+  color: #334155 !important; 
   font-weight: 450;
+}
+
+/* Headings - Crisp Dark Navy */
+h1, h2, h3, h4,
+.pagehero-inner h1,
+.section-head h2,
+.network-intro h2,
+.network-group-card h3 {
+  color: #0F172A !important;
 }
 
 /* Subtitle Leads */
@@ -707,22 +717,12 @@ p,
   font-weight: 600 !important;
 }
 
-/* Headings - Crisp Dark Navy */
-h1, h2, h3, h4,
-.pagehero-inner h1,
-.section-head h2,
-.network-intro h2,
-.network-group-card h3 {
-  color: #0F172A !important; /* Deep solid color for titles */
-}
-
 /* Section Taglines / Kickers - Saturated Deep Purple */
 .eyebrow,
 .eyebrow-light,
 .og-kicker,
-.service-tag,
-.mission-mini {
-  color: #6B21A8 !important; /* Saturated purple for high visibility */
+.service-tag {
+  color: #6B21A8 !important;
   font-weight: 800 !important;
 }
 
@@ -730,6 +730,34 @@ h1, h2, h3, h4,
 .blue-text {
   color: #5B21B6 !important;
 }
+
+/* ── DARK SECTION EXCEPTIONS (Fix for unreadable text on dark backgrounds) ── */
+.mission-card:not(.bright) h3,
+.cta-panel h2,
+.og-final-card h2,
+.network-highlight h2,
+.pathway-section:not(.process-light) h2,
+.pathway-section:not(.process-light) h3 {
+  color: #FFFFFF !important;
+}
+
+.mission-card:not(.bright) p,
+.cta-panel p,
+.og-final-card p,
+.network-highlight p,
+.pathway-section:not(.process-light) p {
+  color: #E2E8F0 !important;
+}
+
+.mission-card:not(.bright) .mission-mini,
+.pathway-section:not(.process-light) .step-index {
+  color: #C4B5FD !important;
+}
+
+.mission-card.bright .mission-mini {
+  color: #6B21A8 !important;
+}
+
 /* ==========================================================
    UNIFIED SERVICES GRID — Home + Services pages
    ========================================================== */
