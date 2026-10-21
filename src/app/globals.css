@@ -802,7 +802,7 @@ h1, h2, h3, h4,
 .svc-image {
   position: relative;
   width: 100%;
-  height: 168px;
+  aspect-ratio: 16 / 10.5; /* Matches the graphic's natural proportions */
   border-radius: 18px;
   overflow: hidden;
   margin-bottom: 18px;
@@ -812,9 +812,9 @@ h1, h2, h3, h4,
 
 .svc-image img {
   object-fit: cover;
+  object-position: center;
   transition: transform 0.55s ease;
 }
-
 .svc-card:hover .svc-image img {
   transform: scale(1.06);
 }

@@ -436,27 +436,30 @@ export default function Home() {
               <X size={20} />
             </button>
 
-            {/* MODAL IMAGE */}
-            {activeService.image && (
-              <div
-                style={{
-                  position: 'relative',
-                  width: '100%',
-                  height: 220,
-                  borderRadius: 20,
-                  overflow: 'hidden',
-                  marginBottom: 24,
-                }}
-              >
-                <Image
-                  src={activeService.image}
-                  alt={activeService.title}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  priority
-                />
-              </div>
-            )}
+          {/* MODAL IMAGE - Full Uncropped View */}
+{activeService.image && (
+  <div
+    style={{
+      position: 'relative',
+      width: '100%',
+      aspectRatio: '16 / 10', /* Restores natural widescreen ratio */
+      borderRadius: '20px',
+      overflow: 'hidden',
+      marginBottom: '24px',
+      background: '#F3EEF8',
+      border: '1px solid rgba(0, 0, 0, 0.06)',
+    }}
+  >
+    <Image
+      src={activeService.image}
+      alt={activeService.title}
+      fill
+      sizes="(max-width: 768px) 100vw, 670px"
+      style={{ objectFit: 'contain' }} /* Guarantees ZERO cropping */
+      priority
+    />
+  </div>
+)}
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
               <span
