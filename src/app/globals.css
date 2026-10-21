@@ -34,7 +34,6 @@
 
 /* ====================================================================
    SUSALI — OMBRE BLUE / SOFT GLASS DESIGN SYSTEM (2026)
-   A distinct visual system inspired by contemporary soft-healthtech UI.
    ==================================================================== */
 :root{--navy:#444A58;--navy2:#546481;--blue:#546481;--cyan:#B995B9;--ink:#2B303C;--muted:#6F7181;--pale:#F8F6FC;--line:#E9E5EE;--white:#fff;--og-slate:#444A58;--og-taupe:#786A6A;--og-berry:#C8A7B9;--og-lilac:#B995B9;--og-blue:#546481;--og-ink:#2B303C}
 html{scroll-padding-top:96px}
@@ -80,7 +79,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
 .og-network-section{background:linear-gradient(125deg,#F6F2F9,#F0EBF6)}.og-network-layout{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:12%}.og-network-layout h2{margin-top:18px}.og-network-layout .og-pill-button{margin-top:14px}.og-network-art{position:relative;height:480px;display:grid;place-items:center;isolation:isolate}.og-network-ring{position:absolute;inset:10%;border-radius:50%;border:1px dashed #AE9DC8}.og-network-ring.ring-a{inset:2%;animation:slowSpin 110s linear infinite}.og-network-ring.ring-b{inset:24%;border-style:solid;background:#E4DCEB3D}.og-network-core{display:flex;flex-direction:column;align-items:center;justify-content:center;width:165px;height:165px;border-radius:45%;background:linear-gradient(135deg,#8C93B8,#B8A2CA);color:white;border:1px solid #fff9;box-shadow:inset 12px 15px 25px #fff4,0 17px 50px #8E7FA451;z-index:2;transform:rotate(-7deg)}.og-network-core>*{transform:rotate(7deg)}.og-network-core strong{font-size:21px;letter-spacing:.08em;margin-top:9px}.og-network-core small{font-size:10px;opacity:.8}.og-network-node{position:absolute;z-index:3;background:#ffffffd9;border:1px solid white;backdrop-filter:blur(20px);width:99px;height:99px;box-shadow:0 17px 35px #83799E2B;border-radius:30px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;color:#8276A0;animation:ogFloat 7s ease-in-out infinite}.og-network-node small{font-size:10px;color:#74768F;font-weight:700}.nn1{left:9%;top:8%}.nn2{right:3%;top:16%;animation-delay:-2s}.nn3{left:4%;bottom:14%;animation-delay:-3s}.nn4{right:11%;bottom:8%;animation-delay:-5s}
 .og-faq-section{background:#fff}.og-faq-layout{display:grid;grid-template-columns:.87fr 1.13fr;gap:10%}.og-faq-layout h2{margin-top:17px}.og-faq-layout>div:first-child p{margin-bottom:26px}.og-faq-layout .faq-explorer{padding-top:5px}.og-faq-layout .faq-item{border-color:#E7E2EC;background:#FBF9FD}.og-faq-layout .faq-item.faq-open{background:#F7F0FA}
 .og-final-section{background:#fff;padding:16px 0 105px}.og-final-card{position:relative;overflow:hidden;isolation:isolate;padding:77px 65px;border-radius:38px;background:radial-gradient(circle at 90% 15%,#B38CA9 0,transparent 53%),linear-gradient(135deg,#4B526A,#77738D);color:#fff;text-align:center}.og-final-card .og-kicker{color:#EAD8ED}.og-final-card h2{font-size:clamp(38px,5.2vw,70px);line-height:1.12;margin:19px 0 17px;position:relative;z-index:1}.og-final-card h2 em{font-style:normal;color:#EDCCE4}.og-final-card p{color:#F2E9F6;font-size:15px;max-width:560px;margin:0 auto 24px;position:relative;z-index:1}.og-final-card .og-pill-primary{background:#fff;color:#3A3D52;position:relative;z-index:2}.og-final-card .og-pill-primary:hover{background:#F2E5F3}.og-final-orb{width:450px;height:450px;position:absolute;right:-100px;bottom:-275px;border-radius:50%;border:60px solid #FFFFFF16;box-shadow:0 0 0 85px #FFFFFF0B;z-index:0}
-/* Shared routes: harmonize the original functional pages with the new palette */
 .page-hero{background:radial-gradient(circle at 1% 0,#DED7F9,transparent 40%),radial-gradient(circle at 90% 10%,#F5DDE9,transparent 50%),linear-gradient(110deg,#E8E6FA,#F9F3F7)!important;color:#2F3441!important;overflow:hidden}.pagehero-inner h1{color:#2D3240!important}.pagehero-inner>div>p{color:#686D81!important}.pagehero-decoration{opacity:.28}.page-hero .eyebrow-light{color:#8F72A3}.page-hero .network-visual{filter:hue-rotate(80deg)}
 .eyebrow{color:#9B7EA5}.eyebrow-light{color:#E5C8E8}.eyebrow-spark{background:#B08BAF}.section-head h2,.intro-text h2,.network-copy h2,.about-main h2,.network-intro h2,.contact-aside h2{color:#34394A}.section-head p,.intro-text p,.about-main p,.network-copy p{color:#73798D}.text-link{color:#777091;border-bottom-color:#BFAEC9}.btn-primary{background:#515775;box-shadow:0 15px 30px #76739726}.btn-primary:hover{background:#757494}.btn-cyan{background:#E8CAE1;color:#3B4056}.btn-outline-light{border-color:#ddd;color:#404050}.service-card,.service-detail,.value-card,.network-group,.mission-card,.contact-form-shell,.help-box,.faq-item{border-radius:24px}.service-card:hover,.service-detail:hover,.value-card:hover{box-shadow:0 19px 45px #81739322}.service-icon,.value-icon{color:#8D79A2;background:#F4E8F7}.service-tag,.service-index,.detail-no{color:#917E9B}.service-link{color:#8D7B9F}.service-card p,.service-detail p,.value-card p,.network-group p{color:#767E92}
 .pathway-section,.network-highlight{background:linear-gradient(135deg,#585F79,#87809B)!important}.pathway-head h2,.network-highlight h2{color:white}.pathway-head h2 span,.network-highlight h2 span{color:#F5D7EC}.pathway-head p,.network-highlight p{color:#EEE7F4}.process-light{background:#F5F1F9}.network-section{background:#F9F6FC}.network-image{background:linear-gradient(135deg,#E6DDF5,#D7DBF0)}.network-image-badge,.hospital-card{background:#FFFFFFB9;backdrop-filter:blur(20px)}.faq-home{background:#F8F5FA}.cta-section{background:#FBFAFD}.cta-panel{background:linear-gradient(130deg,#515971,#807C9A)!important}.cta-copy h2 span{color:#EDD0E5}.footer{background:#33394B!important}.footer .brand-dot{color:#D1A6C7}.footer-button{background:#E6D2E4;color:#3A3D50}.footer a:hover{color:#F7DEF2}.faq-filters button.selected{background:#6F7190;color:#fff}.faq-toggle{color:#9980AA}.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:#B795B7;box-shadow:0 0 0 3px #B795B722}
@@ -184,7 +182,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
 }
 /* ==========================================================
    SUSALI — TRANSPARENT HEADER & FOOTER
-   Keep this block last so it overrides earlier theme styles.
    ========================================================== */
 .og-header,
 .og-header.is-scrolled {
@@ -210,7 +207,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   box-shadow: none !important;
 }
 
-/* The page background is light, so use readable footer text. */
 .footer { color: #2B303C; }
 .footer h4 { color: #34394A; }
 .footer-top p,
@@ -227,7 +223,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
 /* ==========================================================
    HERO SECTION V2 — CLEAN FULL-WIDTH CARDS LAYOUT
    ========================================================== */
-
 .og-hero-v2 {
   position: relative;
   min-height: 820px;
@@ -278,7 +273,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   padding-top: 20px;
 }
 
-/* Left Content Column */
 .og-hero-content-left {
   max-width: 580px;
   z-index: 5;
@@ -370,7 +364,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   min-height: 380px;
 }
 
-/* ── FULL WIDTH FLOATING GLASS CARDS CONTAINER ── */
 .og-hero-visual-container {
   position: relative;
   width: 100%;
@@ -378,7 +371,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   margin-top: 40px;
 }
 
-/* ── 3D Decorative Orbs ── */
 .og-3d-orb {
   position: absolute;
   border-radius: 50%;
@@ -404,7 +396,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   box-shadow: 0 12px 30px rgba(192, 132, 252, 0.35), inset -4px -4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* ── Glass Card Base Styling ── */
 .og-card-glass {
   position: absolute;
   background: rgba(255, 255, 255, 0.85);
@@ -442,7 +433,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   display: block;
 }
 
-/* Card 1: Left Float (Digital Health Profile) */
 .og-card-left-float {
   left: 600px;
   bottom: 100px;
@@ -482,7 +472,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   flex-shrink: 0;
 }
 
-/* Card 2: Center Hero Float (Patients & Doctors Connected) */
 .og-card-center-hero {
   left: 60%;
   transform: translateX(-50%);
@@ -560,7 +549,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   color: #6b7280;
 }
 
-/* Card 3: Right Float (Connected Care ECG) */
 .og-card-right-float {
   right: -90;
   bottom: 150px;
@@ -575,7 +563,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
   margin-top: 6px;
 }
 
-/* ── Mobile / Responsive Stacking ── */
 @media (max-width: 1100px) {
   .og-hero-visual-container {
     height: auto;
@@ -683,8 +670,6 @@ h1,h2,h3,h4{letter-spacing:-.055em}
 /* ==========================================================
    TEXT CONTRAST & READABILITY FIXES (WCAG AAA Compliant)
    ========================================================== */
-
-/* General text - scoped safely so it doesn't break dark cards */
 body p, 
 .lead, 
 .og-lead, 
@@ -701,7 +686,6 @@ body p,
   font-weight: 450;
 }
 
-/* Headings - Crisp Dark Navy */
 h1, h2, h3, h4,
 .pagehero-inner h1,
 .section-head h2,
@@ -710,14 +694,12 @@ h1, h2, h3, h4,
   color: #0F172A !important;
 }
 
-/* Subtitle Leads */
 .lead, 
 .og-lead {
   color: #1E293B !important;
   font-weight: 600 !important;
 }
 
-/* Section Taglines / Kickers - Saturated Deep Purple */
 .eyebrow,
 .eyebrow-light,
 .og-kicker,
@@ -726,12 +708,11 @@ h1, h2, h3, h4,
   font-weight: 800 !important;
 }
 
-/* Blue Accent Text */
 .blue-text {
   color: #5B21B6 !important;
 }
 
-/* ── DARK SECTION EXCEPTIONS (Fix for unreadable text on dark backgrounds) ── */
+/* ── DARK SECTION EXCEPTIONS ── */
 .mission-card:not(.bright) h3,
 .cta-panel h2,
 .og-final-card h2,
@@ -830,7 +811,7 @@ h1, h2, h3, h4,
 .svc-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10.5; /* Matches the graphic's natural proportions */
+  aspect-ratio: 16 / 10.5;
   border-radius: 18px;
   overflow: hidden;
   margin-bottom: 18px;
@@ -918,7 +899,6 @@ h1, h2, h3, h4,
   border-color: #515775;
 }
 
-/* Accent variants */
 .svc-card.svc-0 .svc-icon,
 .svc-card.svc-3 .svc-icon {
   background: linear-gradient(140deg, #E6EDF8, #DEE1F5);
@@ -959,4 +939,77 @@ h1, h2, h3, h4,
   .svc-card h3 {
     font-size: 1.1rem;
   }
+}
+
+/* ==========================================================
+   ABOUT PAGE — CORE VALUES 3-COLUMN GRID (2 rows of 3)
+   ========================================================== */
+@media (min-width: 1101px) {
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 22px !important;
+  }
+}
+
+@media (min-width: 851px) and (max-width: 1100px) {
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 18px !important;
+  }
+}
+
+/* =================================================
+   SUSALI — UNIFIED LAVENDER TEXT ACCENTS
+   Match "Inspired by Care."
+   ================================================= */
+
+:root {
+  --susali-lavender-start: #615C88;
+  --susali-lavender-end: #B68BAD;
+  --susali-lavender-solid: #8F73A0;
+}
+
+/* All highlighted headings */
+.blue-text,
+.gradient-text,
+.gradient-text-purple,
+.gradient-text-violet {
+  background: linear-gradient(
+    110deg,
+    var(--susali-lavender-start) 0%,
+    var(--susali-lavender-end) 100%
+  ) !important;
+
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Small accent labels on light backgrounds */
+.eyebrow,
+.og-kicker,
+.service-tag {
+  color: #78658E !important;
+}
+
+
+/* ==========================================
+   SERVICES PAGE — REMOVE STEP NUMBERS
+   ========================================== */
+
+/* Remove top numbers (01, 02, 03...) */
+.process-light .journey-step .step-index {
+  display: none !important;
+}
+
+Remove numbered boxes and connector lines
+.process-light .journey-step .step-head {
+  display: none !important;
+}
+
+/* Adjust spacing after removing numbers */
+.process-light .journey-step h3 {
+  margin-top: 0;
 }

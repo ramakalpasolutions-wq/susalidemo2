@@ -21,7 +21,6 @@ import ScrollReveal, {
   StaggerContainer,
   StaggerItem,
 } from '@/components/ScrollReveal';
-import CountUp from '@/components/CountUp';
 import MagneticButton from '@/components/MagneticButton';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -180,75 +179,73 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES SECTION ── */}
-     {/* ── SERVICES SECTION ── */}
-<section className="og-services section-space">
-  <div className="container">
-    <ScrollReveal>
-      <div className="og-section-heading">
-        <div>
-          <span className="og-kicker">{h.servicesKicker}</span>
-          <h2>
-            {h.servicesTitle1} <em>{h.servicesTitle2}</em>
-          </h2>
+      <section className="og-services section-space">
+        <div className="container">
+          <ScrollReveal>
+            <div className="og-section-heading">
+              <div>
+                <span className="og-kicker">{h.servicesKicker}</span>
+                <h2>
+                  {h.servicesTitle1} <em>{h.servicesTitle2}</em>
+                </h2>
+              </div>
+              <p>{h.servicesDesc}</p>
+            </div>
+          </ScrollReveal>
+
+          <StaggerContainer className="svc-grid" stagger={0.08}>
+            {t.services.list.map((service, i) => (
+              <StaggerItem key={service.id} className="svc-item">
+                <div
+                  onClick={() => setActiveService(service)}
+                  className={`svc-card svc-${i}`}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && setActiveService(service)}
+                >
+                  <div className="svc-card-top">
+                    <span className="svc-icon">
+                      <DynamicIcon name={service.icon || 'HeartPulse'} size={24} />
+                    </span>
+                  </div>
+
+                  {service.image && (
+                    <div className="svc-image">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                  )}
+
+                  <div className="svc-body">
+                    <h3>{service.title}</h3>
+                    <p className="svc-desc">{service.desc}</p>
+
+                    <div className="svc-foot">
+                      <span className="svc-foot-label">View details</span>
+                      <span className="svc-arrow">
+                        <ArrowUpRight size={18} />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          <ScrollReveal delay={0.2}>
+            <div className="og-section-bottom">
+              <span>One connected ecosystem.</span>
+              <Link href="/services" className="og-text-link">
+                {h.servicesBtn} <ArrowUpRight size={18} />
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
-        <p>{h.servicesDesc}</p>
-      </div>
-    </ScrollReveal>
-
-    <StaggerContainer className="svc-grid" stagger={0.08}>
-      {t.services.list.map((service, i) => (
-        <StaggerItem key={service.id} className="svc-item">
-          <div
-            onClick={() => setActiveService(service)}
-            className={`svc-card svc-${i}`}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && setActiveService(service)}
-          >
-            <div className="svc-card-top">
-              <span className="svc-icon">
-                <DynamicIcon name={service.icon || 'HeartPulse'} size={24} />
-              </span>
-              {/* <span className="svc-num">{service.id} / 06</span> */}
-            </div>
-
-            {service.image && (
-              <div className="svc-image">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-            )}
-
-            <div className="svc-body">
-              <h3>{service.title}</h3>
-              <p className="svc-desc">{service.desc}</p>
-
-              <div className="svc-foot">
-                <span className="svc-foot-label">View details</span>
-                <span className="svc-arrow">
-                  <ArrowUpRight size={18} />
-                </span>
-              </div>
-            </div>
-          </div>
-        </StaggerItem>
-      ))}
-    </StaggerContainer>
-
-    <ScrollReveal delay={0.2}>
-      <div className="og-section-bottom">
-        <span>One connected ecosystem.</span>
-        <Link href="/services" className="og-text-link">
-          {h.servicesBtn} <ArrowUpRight size={18} />
-        </Link>
-      </div>
-    </ScrollReveal>
-  </div>
-</section>
+      </section>
 
       {/* ── JOURNEY ── */}
       <ScrollReveal>
@@ -310,36 +307,6 @@ export default function Home() {
                 <ShieldCheck size={25} />
                 <small>Trust</small>
               </span>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ── STATS CARD ── */}
-      <section className="section-space">
-        <div className="container">
-          <ScrollReveal>
-            <div className="og-stats-glass-card">
-              <StaggerContainer className="og-stats-row" stagger={0.12}>
-                <StaggerItem className="og-stat-item">
-                  <h2>
-                    <CountUp target={500} suffix="+" />
-                  </h2>
-                  <p>Patients Guided</p>
-                </StaggerItem>
-                <StaggerItem className="og-stat-item">
-                  <h2>
-                    <CountUp target={50} suffix="+" />
-                  </h2>
-                  <p>Care Partners</p>
-                </StaggerItem>
-                <StaggerItem className="og-stat-item">
-                  <h2>
-                    <CountUp target={98} suffix="%" />
-                  </h2>
-                  <p>Satisfaction Rate</p>
-                </StaggerItem>
-              </StaggerContainer>
             </div>
           </ScrollReveal>
         </div>
@@ -436,30 +403,30 @@ export default function Home() {
               <X size={20} />
             </button>
 
-          {/* MODAL IMAGE - Full Uncropped View */}
-{activeService.image && (
-  <div
-    style={{
-      position: 'relative',
-      width: '100%',
-      aspectRatio: '16 / 10', /* Restores natural widescreen ratio */
-      borderRadius: '20px',
-      overflow: 'hidden',
-      marginBottom: '24px',
-      background: '#F3EEF8',
-      border: '1px solid rgba(0, 0, 0, 0.06)',
-    }}
-  >
-    <Image
-      src={activeService.image}
-      alt={activeService.title}
-      fill
-      sizes="(max-width: 768px) 100vw, 670px"
-      style={{ objectFit: 'contain' }} /* Guarantees ZERO cropping */
-      priority
-    />
-  </div>
-)}
+            {/* MODAL IMAGE - Full Uncropped View */}
+            {activeService.image && (
+              <div
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  aspectRatio: '16 / 10',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  marginBottom: '24px',
+                  background: '#F3EEF8',
+                  border: '1px solid rgba(0, 0, 0, 0.06)',
+                }}
+              >
+                <Image
+                  src={activeService.image}
+                  alt={activeService.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 670px"
+                  style={{ objectFit: 'contain' }}
+                  priority
+                />
+              </div>
+            )}
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
               <span
@@ -475,9 +442,6 @@ export default function Home() {
                 }}
               >
                 <DynamicIcon name={activeService.icon || 'HeartPulse'} size={26} />
-              </span>
-              <span style={{ fontSize: '0.85rem', fontWeight: '800', color: '#917E9B', letterSpacing: '0.12em' }}>
-                SERVICE {activeService.id} / 06
               </span>
             </div>
 
