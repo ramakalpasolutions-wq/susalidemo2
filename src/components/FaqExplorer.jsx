@@ -1,28 +1,43 @@
 'use client';
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 import { faqs } from '@/data/site';
 
 export default function FaqExplorer({ limit = 0 }) {
+  const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState('All');
   const [opened, setOpened] = useState(-1);
-  
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    // Render placeholder skeleton or null during SSR to avoid mismatch
+    return null;
+  }
+
   // Dynamically extract categories from the faqs array
-  const categories = ['All', ...new Set(faqs.map(f => f.category))];
-  
-  const filtered = (active === 'All' ? faqs : faqs.filter(x => x.category === active));
+  const categories = ['All', ...new Set(faqs.map((f) => f.category))];
+
+  const filtered = active === 'All' ? faqs : faqs.filter((x) => x.category === active);
   const items = limit ? filtered.slice(0, limit) : filtered;
 
   return (
     <div className="faq-explorer">
       {!limit && (
         <div className="faq-filters" role="group">
-          {categories.map(cat => (
+          {categories.map((cat) => (
             <button
-              type="button" key={cat}
+              type="button"
+              key={cat}
               className={active === cat ? 'selected' : ''}
-              onClick={() => { setActive(cat); setOpened(-1); }}
+              onClick={() => {
+                setActive(cat);
+                setOpened(-1);
+              }}
             >
               {cat}
             </button>
@@ -32,9 +47,13 @@ export default function FaqExplorer({ limit = 0 }) {
       <div className="faq-list">
         {items.map((item, i) => (
           <div key={item.q} className={'faq-item ' + (opened === i ? 'faq-open' : '')}>
-            <button type="button" aria-expanded={opened === i} onClick={() => setOpened(opened === i ? -1 : i)}>
+            <button
+              type="button"
+              aria-expanded={opened === i}
+              onClick={() => setOpened(opened === i ? -1 : i)}
+            >
               <span>{item.q}</span>
-              <motion.span 
+              <motion.span
                 className="faq-toggle"
                 animate={{ rotate: opened === i ? 180 : 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
